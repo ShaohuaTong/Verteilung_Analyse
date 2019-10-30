@@ -1,0 +1,234 @@
+* {
+    font-family: "Microsoft YaHei";
+}
+
+/*QPushButton*/
+QPushButton {
+    color: #fff;
+    border: 0px solid rgba(255, 255, 255, 0);
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 5px;
+}
+
+/*MediumGray*/
+QPushButton[class="MediumGray"] {
+    background-color: #aab2bd;
+}
+
+QPushButton:hover[class="MediumGray"] {
+    background-color: #ccd1d9;
+}
+
+QPushButton:pressed[class="MediumGray"] {
+    background: qradialgradient(cx:0.5,
+    cy: 0.5,
+    fx: 0.5,
+    fy: 0.5,
+    radius: 1.5,
+    stop: 0.2 #ccd1d9,
+    stop: 0.8 #aab2bd);
+}
+
+/*DarkGray*/
+QPushButton[class="DarkGray"] {
+    background-color: #434a54;
+}
+
+QPushButton:hover[class="DarkGray"] {
+    background-color: #656d78;
+}
+
+QPushButton:pressed[class="DarkGray"] {
+    background: qradialgradient(cx:0.5,
+    cy: 0.5,
+    fx: 0.5,
+    fy: 0.5,
+    radius: 1.5,
+    stop: 0.2 #656d78,
+    stop: 0.8 #434a54);
+}
+
+/*BlueJeans*/
+QPushButton[class="BlueJeans"] {
+    background-color: #4a89dc;
+}
+
+QPushButton:hover[class="BlueJeans"] {
+    background-color: #5d9cec;
+}
+
+QPushButton:pressed[class="BlueJeans"] {
+    background: qradialgradient(cx:0.5,
+    cy: 0.5,
+    fx: 0.5,
+    fy: 0.5,
+    radius: 1.5,
+    stop: 0.2 #5d9cec,
+    stop: 0.8 #4a89dc);
+}
+
+/*Aqua*/
+QPushButton[class="Aqua"] {
+    background-color: #3bafda;
+}
+
+QPushButton:hover[class="Aqua"] {
+    background-color: #4fc1e9;
+}
+
+QPushButton:pressed[class="Aqua"] {
+    background: qradialgradient(cx:0.5,
+    cy: 0.5,
+    fx: 0.5,
+    fy: 0.5,
+    radius: 1.5,
+    stop: 0.2 #4fc1e9,
+    stop: 0.8 #3bafda);
+}
+
+/*Mint*/
+QPushButton[class="Mint"] {
+    background-color: #37bc9b;
+}
+
+QPushButton:hover[class="Mint"] {
+    background-color: #48cfad;
+}
+
+QPushButton:pressed[class="Mint"] {
+    background: qradialgradient(cx:0.5,
+    cy: 0.5,
+    fx: 0.5,
+    fy: 0.5,
+    radius: 1.5,
+    stop: 0.2 #48cfad,
+    stop: 0.8 #37bc9b);
+}
+
+/*Grass*/
+QPushButton[class="Grass"] {
+    background-color: #8cc152;
+}
+
+QPushButton:hover[class="Grass"] {
+    background-color: #a0d468;
+}
+
+QPushButton:pressed[class="Grass"] {
+    background: qradialgradient(cx:0.5,
+    cy: 0.5,
+    fx: 0.5,
+    fy: 0.5,
+    radius: 1.5,
+    stop: 0.2 #a0d468,
+    stop: 0.8 #8cc152);
+}
+
+/*Sunflower*/
+QPushButton[class="Sunflower"] {
+    background-color: #f6bb42;
+}
+
+QPushButton:hover[class="Sunflower"] {
+    background-color: #ffce54;
+}
+
+QPushButton:pressed[class="Sunflower"] {
+    background: qradialgradient(cx:0.5,
+    cy: 0.5,
+    fx: 0.5,
+    fy: 0.5,
+    radius: 1.5,
+    stop: 0.2 #ffce54,
+    stop: 0.8 #f6bb42);
+}
+
+/*Bittersweet*/
+QPushButton[class="Bittersweet"] {
+    background-color: #e9573f;
+}
+
+QPushButton:hover[class="Bittersweet"] {
+    background-color: #fc6e51;
+}
+
+QPushButton:pressed[class="Bittersweet"] {
+    background: qradialgradient(cx:0.5,
+    cy: 0.5,
+    fx: 0.5,
+    fy: 0.5,
+    radius: 1.5,
+    stop: 0.2 #fc6e51,
+    stop: 0.8 #e9573f);
+}
+
+/*Grapefruit*/
+QPushButton[class="Grapefruit"] {
+    background-color: #da4453;
+}
+
+QPushButton:hover[class="Grapefruit"] {
+    background-color: #ed5565;
+}
+
+QPushButton:pressed[class="Grapefruit"] {
+    background: qradialgradient(cx:0.5,
+    cy: 0.5,
+    fx: 0.5,
+    fy: 0.5,
+    radius: 1.5,
+    stop: 0.2 #ed5565,
+    stop: 0.8 #da4453);
+}
+
+/*Lavender*/
+QPushButton[class="Lavender"] {
+    background-color: #967adc;
+}
+
+QPushButton:hover[class="Lavender"] {
+    background-color: #ac92ec;
+}
+
+QPushButton:pressed[class="Lavender"] {
+    background: qradialgradient(cx:0.5,
+    cy: 0.5,
+    fx: 0.5,
+    fy: 0.5,
+    radius: 1.5,
+    stop: 0.2 #ac92ec,
+    stop: 0.8 #967adc);
+}
+
+/*PinkRose*/
+QPushButton[class="PinkRose"] {
+    background-color: #d770ad;
+}
+
+QPushButton:hover[class="PinkRose"] {
+    background-color: #ec87c0;
+}
+
+QPushButton:pressed[class="PinkRose"] {
+    background: qradialgradient(cx:0.5,
+    cy: 0.5,
+    fx: 0.5,
+    fy: 0.5,
+    radius: 1.5,
+    stop: 0.2 #ec87c0,
+    stop: 0.8 #d770ad);
+}
+/*yukun*/
+QPushButton[class="yukun"] {
+background-color: rgb(0, 255, 0, 100);
+}
+QPushButton:hover[class="yukun"] {
+background-color: rgb(0, 255, 0);
+}
+QPushButton:pressed[class="yukun"] {
+background-color: red;
+}
+QPushButton:checked[class="yukun"] {
+background-color: red;
+}

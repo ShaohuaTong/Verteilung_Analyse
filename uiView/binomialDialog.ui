@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>969</width>
+    <height>770</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>731</width>
+     <height>741</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Graph</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_n">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>10</y>
+     <width>16</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>n</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_p">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>50</y>
+     <width>16</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>p</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_n">
+   <property name="geometry">
+    <rect>
+     <x>770</x>
+     <y>20</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_p">
+   <property name="geometry">
+    <rect>
+     <x>770</x>
+     <y>60</y>
+     <width>113</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_drawing">
+   <property name="geometry">
+    <rect>
+     <x>860</x>
+     <y>350</y>
+     <width>88</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Drawing</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_clear">
+   <property name="geometry">
+    <rect>
+     <x>860</x>
+     <y>420</y>
+     <width>88</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Clear</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_style">
+   <property name="geometry">
+    <rect>
+     <x>790</x>
+     <y>100</y>
+     <width>51</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>pdf</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>cdf</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_style">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>100</y>
+     <width>21</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Style</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_mouseX">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>740</y>
+     <width>71</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;X:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_mouseY">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>740</y>
+     <width>91</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;Y:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_return">
+   <property name="geometry">
+    <rect>
+     <x>860</x>
+     <y>490</y>
+     <width>88</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Return</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="comboBox_area">
+   <property name="geometry">
+    <rect>
+     <x>790</x>
+     <y>150</y>
+     <width>91</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>None</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>x&lt;=a</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>a&lt;=x&lt;=b</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>x&gt;=b</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_area">
+   <property name="geometry">
+    <rect>
+     <x>760</x>
+     <y>150</y>
+     <width>31</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>11</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Area</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_a">
+   <property name="geometry">
+    <rect>
+     <x>900</x>
+     <y>10</y>
+     <width>16</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>a</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_b">
+   <property name="geometry">
+    <rect>
+     <x>900</x>
+     <y>50</y>
+     <width>16</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Agency FB</family>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>b</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_a">
+   <property name="geometry">
+    <rect>
+     <x>910</x>
+     <y>20</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_b">
+   <property name="geometry">
+    <rect>
+     <x>910</x>
+     <y>60</y>
+     <width>41</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
