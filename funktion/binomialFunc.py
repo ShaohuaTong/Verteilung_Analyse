@@ -30,6 +30,15 @@ class binomialShow(binomialDialog, QDialog):
         self.pushButton_clear.clicked.connect(self.clear)
 
     def clear(self):
+        self.label_a.setHidden(True)
+        self.label_b.setHidden(True)
+        self.lineEdit_a.setHidden(True)
+        self.lineEdit_a.clear()
+        self.lineEdit_b.clear()
+        self.lineEdit_b.setHidden(True)
+        self.label_area.setHidden(True)
+        self.comboBox_area.setHidden(True)
+
         plt.clf()
         self.canves.draw()
 
@@ -40,9 +49,17 @@ class binomialShow(binomialDialog, QDialog):
         b = self.lineEdit_b.text()
 
         if n != '' and p != '':
-            n = float(n)
+            plt.clf()
+            self.label_a.setHidden(False)
+            self.label_b.setHidden(False)
+            self.lineEdit_a.setHidden(False)
+            self.lineEdit_b.setHidden(False)
+            self.label_area.setHidden(False)
+            self.comboBox_area.setHidden(False)
+
+            n = int(n)
             p = float(p)
-            x = np.arange(0, n)
+            x = np.arange(0, n + 1)
             y = stats.binom.pmf(x, n, p)
 
             if self.comboBox_style.currentText() == 'pdf':
@@ -82,28 +99,77 @@ class binomialShow(binomialDialog, QDialog):
 
         if self.comboBox_area.currentText() == 'x<=a' and a != '':
             a = int(a)
-            xf = x[np.where((x >= 0) & (x <= a))]
-            plt.fill_between(xf, self.func(xf), stats.binom.pmf(xf, n, p), color='blue', alpha=0.25)
-            area = cy[a]
-            plt.annotate('Probality is %.3f' % area, xy=(a / 2, y[k3] /2), xytext=(n * 0.6, y[k3]),  # 添加标注，参数：注释文本、指向点、文字位置、箭头属性
-                         arrowprops=dict(arrowstyle='->',connectionstyle='arc3,rad=.2')
-                         )
+            if a >= 0:
+                xf = x[np.where((x >= 0) & (x <= a))]
+                plt.fill_between(xf, self.func(xf), stats.binom.pmf(xf, n, p), color='blue', alpha=0.25)
+                area = cy[a]
+                y1, y2= y[int(math.floor(a / 2))], y[int(math.ceil(a / 2))]
+                if y1 == y2:
+                    y_left = y[int(a / 2 - 1)]
+                    location_y = y1 if y1 <= y_left else y_left
+                    plt.annotate('Probality of area is %.3f' % area, xy=(a / 2 - 0.5, location_y), xytext=(n * 0.6, y[k3]),
+                             # 添加标注，参数：注释文本、指向点、文字位置、箭头属性
+                             arrowprops=dict(arrowstyle='->',connectionstyle='arc3,rad=.2')
+                             )
+                else:
+                    location_y = y1 if y1 <= y2 else y2
+                    plt.annotate('Probality of area is %.3f' % area, xy=(a / 2, location_y), xytext=(n * 0.6, y[k3]),
+                             arrowprops=dict(arrowstyle='->',connectionstyle='arc3,rad=.2')
+                             )
         elif self.comboBox_area.currentText() == 'a<=x<=b' and a != '' and b != '':
-            a = int(a)
-            b = int(b)
-            xf = x[np.where((x >= a) & (x <= b))]
-            plt.fill_between(xf, self.func(xf), stats.binom.pmf(xf, n, p), color='blue', alpha=0.25)
-            area = cy[b] - cy[a - 1]
-            plt.annotate('Probality is %.3f' % area, xy=((a + b) / 2, y[k3] / 2), xytext=(n * 0.6, y[k3]),
-                         # 添加标注，参数：注释文本、指向点、文字位置、箭头属性
-                         arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=.2')
-                         )
+            a, b = int(a), int(b)
+            if a >= 0 and a <= b and b <= n:
+                xf = x[np.where((x >= a) & (x <= b))]
+                plt.fill_between(xf, self.func(xf), stats.binom.pmf(xf, n, p), color='blue', alpha=0.25)
+                area = cy[b] - cy[a - 1]
+                temp = y[9]
+                print(temp)
+                y1, y2= y[int(math.floor((a + b) / 2))], y[int(math.ceil((a + b) / 2))]
+                if y1 == y2:
+                    y_left = y[int((a + b) / 2 - 1)]
+                    location_y = y1 if y1 <= y_left else y_left
+                    plt.annotate('Probality of area is %.3f' % area, xy=((a + b) / 2 - 0.5, location_y), xytext=(n * 0.4, 0.25),
+                                 arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=.2')
+                                 )
+                else:
+                    location_y = y1 if y1 <= y2 else y2
+                    plt.annotate('Probality of area is %.3f' % area, xy=((a + b) / 2, location_y), xytext=(n * 0.6, y[k3]),
+                             arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=.2')
+                             )
         elif self.comboBox_area.currentText() == 'x>=b' and b != '':
             b = int(b)
-            xf = x[np.where((x >= b) & (x <= n))]
-            plt.fill_between(xf, self.func(xf), stats.binom.pmf(xf, n, p), color='blue', alpha=0.25)
-            area = 1 - cy[b - 1]
-            plt.annotate('Probality is %.3f' % area, xy=((n + b) / 2, y[k3] / 2), xytext=(n * 0.6, y[k3]),
-                         # 添加标注，参数：注释文本、指向点、文字位置、箭头属性
-                         arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=.2')
-                         )
+            if b <= n:
+                xf = x[np.where((x >= b) & (x <= n))]
+                plt.fill_between(xf, self.func(xf), stats.binom.pmf(xf, n, p), color='blue', alpha=0.25)
+                area = 1 - cy[b - 1]
+                print(cy[b])
+                y1, y2 = y[int(math.floor((n + b) / 2))], y[int(math.ceil((n + b) / 2))]
+                if y1 == y2:
+                    y_right = y[int((n + b) / 2 + 1)]
+                    location_y = y1 if y1 <= y_right else y_right
+                    plt.annotate('Probality of area is %.3f' % area, xy=((n + b) / 2 + 0.5, location_y), xytext=(n * 0.6, y[k3]),
+                                 arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=.2')
+                                 )
+                else:
+                    location_y = y1 if y1 <= y2 else y2
+                    plt.annotate('Probality of area is %.3f' % area, xy=((n + b) / 2, location_y), xytext=(n * 0.6, y[k3]),
+                             arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=.2')
+                             )
+
+  # pDoublevalidator = QDoubleValidator(self)
+  #       pDoublevalidator.setRange(-99999999, 99999999)
+  #       pDoublevalidator.setNotation(QDoubleValidator.StandardNotation)
+  #       pDoublevalidator.setDecimals(2)
+  #       self.lineEdit_a.setValidator(QDoubleValidator)
+  #       self.lineEdit_b.setValidator(QDoubleValidator)
+  #       self.lineEdit_n.setValidator(QDoubleValidator)
+  #       self.lineEdit_p.setValidator(QDoubleValidator)
+  #
+  #       self.label_a.setHidden(True)
+  #       self.label_b.setHidden(True)
+  #       self.lineEdit_a.setHidden(True)
+  #       self.lineEdit_a.clear()
+  #       self.lineEdit_b.clear()
+  #       self.lineEdit_b.setHidden(True)
+  #       self.label_area.setHidden(True)
+  #       self.comboBox_area.setHidden(True)
