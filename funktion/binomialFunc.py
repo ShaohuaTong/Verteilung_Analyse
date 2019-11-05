@@ -62,8 +62,16 @@ class binomialShow(binomialDialog, QDialog):
             x = np.arange(0, n + 1)
             y = stats.binom.pmf(x, n, p)
 
+            list_x = []
+            list_y = []
+
+                #
+
             if self.comboBox_style.currentText() == 'pdf':
-                plt.plot(x, y, 'ro-')
+                for i in range(len(x)):
+                    plt.scatter(x[i], y[i], color='black', s=5)
+                    plt.plot([x[i], x[i]], [y[i], 0], label='sin')
+
                 plt.xlabel('number')
                 plt.ylabel('probality')
                 plt.grid(b=True, which='major', axis='both', alpha=0.5, color='skyblue', linestyle='--', linewidth=1)

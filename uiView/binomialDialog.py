@@ -195,24 +195,19 @@ class binomialDialog(object):
         self.verticalLayout_5.addLayout(self.horizontalLayout_9)
         self.verticalLayout_6.addLayout(self.verticalLayout_5)
 
-        # self.lineEdit_a.setValidator()
-        # self.lineEdit_b.setValidator()
-
         nIntvalidator = QIntValidator(self)
         nIntvalidator.setRange(0, 99999)
         self.lineEdit_n.setValidator(nIntvalidator)
         self.lineEdit_b.setValidator(nIntvalidator)
         self.lineEdit_a.setValidator(nIntvalidator)
 
-        rx = QRegExp("^[0-0.99]{1}([.]([0-9]){2})?$")
+        rx = QRegExp("^[0-1]{1}([.]([0-9]){2})?$")
         pRegExpValidator = QRegExpValidator(rx)
         self.lineEdit_p.setValidator(pRegExpValidator)
 
         self.label_a.setHidden(True)
         self.label_b.setHidden(True)
         self.lineEdit_a.setHidden(True)
-        self.lineEdit_a.clear()
-        self.lineEdit_b.clear()
         self.lineEdit_b.setHidden(True)
         self.label_area.setHidden(True)
         self.comboBox_area.setHidden(True)
