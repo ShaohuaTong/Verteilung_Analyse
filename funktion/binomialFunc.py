@@ -28,63 +28,70 @@ class binomialShow(binomialDialog, QDialog):
 
         self.pushButton_drawing.clicked.connect(self.draw)
         self.pushButton_clear.clicked.connect(self.clear)
+        self.pushButton_return.clicked.connect(self.clear)
+
 
     def clear(self):
         self.label_a.setHidden(True)
         self.label_b.setHidden(True)
         self.lineEdit_a.setHidden(True)
+        self.lineEdit_n.clear()
+        self.lineEdit_p.clear()
         self.lineEdit_a.clear()
         self.lineEdit_b.clear()
         self.lineEdit_b.setHidden(True)
         self.label_area.setHidden(True)
         self.comboBox_area.setHidden(True)
-
+        self.label_area_result.clear()
         plt.clf()
         self.canves.draw()
 
     def draw(self):
+        self.label_area_result.setText('')
         n = self.lineEdit_n.text()
         p = self.lineEdit_p.text()
         a = self.lineEdit_a.text()
         b = self.lineEdit_b.text()
 
         if n != '' and p != '':
-            plt.clf()
-            self.label_a.setHidden(False)
-            self.label_b.setHidden(False)
-            self.lineEdit_a.setHidden(False)
-            self.lineEdit_b.setHidden(False)
-            self.label_area.setHidden(False)
-            self.comboBox_area.setHidden(False)
-
             n = int(n)
             p = float(p)
-            x = np.arange(0, n + 1)
-            y = stats.binom.pmf(x, n, p)
 
-            list_x = []
-            list_y = []
+            if p != 0 and p != 1:
+                plt.clf()
+                self.label_a.setHidden(False)
+                self.label_b.setHidden(False)
+                self.lineEdit_a.setHidden(False)
+                self.lineEdit_b.setHidden(False)
+                self.label_area.setHidden(False)
+                self.comboBox_area.setHidden(False)
 
-                #
+                x = np.arange(0, n + 1)
+                y = stats.binom.pmf(x, n, p)
 
-            if self.comboBox_style.currentText() == 'pdf':
-                for i in range(len(x)):
-                    plt.scatter(x[i], y[i], color='black', s=5)
-                    plt.plot([x[i], x[i]], [y[i], 0], label='sin')
+                if self.comboBox_style.currentText() == 'pdf':
+                    for i in range(len(x)):
+                        plt.scatter(x[i], y[i], color='black', s=5)
+                        plt.plot([x[i], x[i]], [y[i], 0], label='sin')
 
-                plt.xlabel('number')
-                plt.ylabel('probality')
-                plt.grid(b=True, which='major', axis='both', alpha=0.5, color='skyblue', linestyle='--', linewidth=1)
+                    plt.xlabel('number')
+                    plt.ylabel('probality')
+                    plt.grid(b=True, which='major', axis='both', alpha=0.5, color='skyblue', linestyle='--', linewidth=1)
 
-                self.draw_highest_point(n, p, y)
-                self.draw_area(x, y, n, p, a, b)
+                    self.draw_highest_point(n, p, y)
+                    self.draw_area(x, y, n, p, a, b)
 
-                self.canves.draw()
-            elif self.comboBox_style.currentText() == 'cdf':
-                cy = np.cumsum(y * 1)
-                plt.plot(x, cy, 'ro-')
-                plt.grid(b=True, which='major', axis='both', alpha=0.5, color='skyblue', linestyle='--', linewidth=2)
-                self.canves.draw()
+                    self.canves.draw()
+                elif self.comboBox_style.currentText() == 'cdf':
+                    cy = np.cumsum(y * 1)
+                    for i in range(len(x)-1):
+                        plt.scatter(x[i], cy[i], color='black', s=5)
+                        plt.plot([x[i], x[i]], [cy[i], cy[i + 1]], label='sin')
+                        plt.plot([x[i], x[i + 1]], [cy[i + 1], cy[i + 1]], label='cos')
+                    plt.scatter(x[len(x)-1], cy[len(x)-1], color='black', s=5)
+                    # plt.plot(x, cy, 'ro-')
+                    plt.grid(b=True, which='major', axis='both', alpha=0.5, color='skyblue', linestyle='--', linewidth=2)
+                    self.canves.draw()
 
     def func(self, x):
         return 0 * x
@@ -110,59 +117,35 @@ class binomialShow(binomialDialog, QDialog):
             if a >= 0:
                 xf = x[np.where((x >= 0) & (x <= a))]
                 plt.fill_between(xf, self.func(xf), stats.binom.pmf(xf, n, p), color='blue', alpha=0.25)
-                area = cy[a]
-                y1, y2= y[int(math.floor(a / 2))], y[int(math.ceil(a / 2))]
-                if y1 == y2:
-                    y_left = y[int(a / 2 - 1)]
-                    location_y = y1 if y1 <= y_left else y_left
-                    plt.annotate('Probality of area is %.3f' % area, xy=(a / 2 - 0.5, location_y), xytext=(n * 0.6, y[k3]),
-                             # 添加标注，参数：注释文本、指向点、文字位置、箭头属性
-                             arrowprops=dict(arrowstyle='->',connectionstyle='arc3,rad=.2')
-                             )
+                if a >= n:
+                    area = cy[n]
                 else:
-                    location_y = y1 if y1 <= y2 else y2
-                    plt.annotate('Probality of area is %.3f' % area, xy=(a / 2, location_y), xytext=(n * 0.6, y[k3]),
-                             arrowprops=dict(arrowstyle='->',connectionstyle='arc3,rad=.2')
-                             )
+                    area = cy[a]
+                self.label_area_result.setText('Probality of area is %.3f' % area)
+
+
         elif self.comboBox_area.currentText() == 'a<=x<=b' and a != '' and b != '':
             a, b = int(a), int(b)
             if a >= 0 and a <= b and b <= n:
                 xf = x[np.where((x >= a) & (x <= b))]
                 plt.fill_between(xf, self.func(xf), stats.binom.pmf(xf, n, p), color='blue', alpha=0.25)
-                area = cy[b] - cy[a - 1]
-                temp = y[9]
-                print(temp)
-                y1, y2= y[int(math.floor((a + b) / 2))], y[int(math.ceil((a + b) / 2))]
-                if y1 == y2:
-                    y_left = y[int((a + b) / 2 - 1)]
-                    location_y = y1 if y1 <= y_left else y_left
-                    plt.annotate('Probality of area is %.3f' % area, xy=((a + b) / 2 - 0.5, location_y), xytext=(n * 0.4, 0.25),
-                                 arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=.2')
-                                 )
+                if a == 0:
+                    area = cy[b] - 0
                 else:
-                    location_y = y1 if y1 <= y2 else y2
-                    plt.annotate('Probality of area is %.3f' % area, xy=((a + b) / 2, location_y), xytext=(n * 0.6, y[k3]),
-                             arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=.2')
-                             )
+                    area = cy[b] - cy[a - 1]
+                self.label_area_result.setText('Probality of area is %.3f' % area)
+
         elif self.comboBox_area.currentText() == 'x>=b' and b != '':
             b = int(b)
             if b <= n:
                 xf = x[np.where((x >= b) & (x <= n))]
                 plt.fill_between(xf, self.func(xf), stats.binom.pmf(xf, n, p), color='blue', alpha=0.25)
-                area = 1 - cy[b - 1]
-                print(cy[b])
-                y1, y2 = y[int(math.floor((n + b) / 2))], y[int(math.ceil((n + b) / 2))]
-                if y1 == y2:
-                    y_right = y[int((n + b) / 2 + 1)]
-                    location_y = y1 if y1 <= y_right else y_right
-                    plt.annotate('Probality of area is %.3f' % area, xy=((n + b) / 2 + 0.5, location_y), xytext=(n * 0.6, y[k3]),
-                                 arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=.2')
-                                 )
+                if b == 0:
+                    area = 1
                 else:
-                    location_y = y1 if y1 <= y2 else y2
-                    plt.annotate('Probality of area is %.3f' % area, xy=((n + b) / 2, location_y), xytext=(n * 0.6, y[k3]),
-                             arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=.2')
-                             )
+                    area = 1 - cy[b - 1]
+                self.label_area_result.setText('Probality of area is %.3f' % area)
+
 
   # pDoublevalidator = QDoubleValidator(self)
   #       pDoublevalidator.setRange(-99999999, 99999999)
@@ -181,3 +164,12 @@ class binomialShow(binomialDialog, QDialog):
   #       self.lineEdit_b.setHidden(True)
   #       self.label_area.setHidden(True)
   #       self.comboBox_area.setHidden(True)
+
+# y1, y2 = y[int(math.floor(a / 2))], y[int(math.ceil(a / 2))]
+# if y1 == y2:
+#     y_left = y[int(a / 2 - 1)]
+#     location_y = y1 if y1 <= y_left else y_left
+#     plt.annotate('Probality of area is %.3f' % area, xy=(a / 2 - 0.5, location_y), xytext=(n * 0.6, y[k3]),
+#                  # 添加标注，参数：注释文本、指向点、文字位置、箭头属性
+#                  arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=.2')
+#                  )
