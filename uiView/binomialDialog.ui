@@ -29,402 +29,199 @@
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>760</x>
-     <y>27</y>
+     <x>762</x>
+     <y>35</y>
      <width>261</width>
-     <height>532</height>
+     <height>534</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_8">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_7">
+     <layout class="QVBoxLayout" name="verticalLayout_5">
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_6">
+       <layout class="QVBoxLayout" name="verticalLayout_4">
         <item>
-         <layout class="QVBoxLayout" name="verticalLayout_5">
+         <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_4">
+           <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
-             <layout class="QVBoxLayout" name="verticalLayout_3">
+             <layout class="QHBoxLayout" name="horizontalLayout_3">
               <item>
-               <layout class="QVBoxLayout" name="verticalLayout_2">
+               <layout class="QVBoxLayout" name="verticalLayout">
                 <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_3">
+                 <layout class="QHBoxLayout" name="horizontalLayout">
                   <item>
-                   <layout class="QVBoxLayout" name="verticalLayout">
-                    <item>
-                     <layout class="QHBoxLayout" name="horizontalLayout">
-                      <item>
-                       <widget class="QLabel" name="label_n">
-                        <property name="font">
-                         <font>
-                          <family>Agency FB</family>
-                          <pointsize>12</pointsize>
-                         </font>
-                        </property>
-                        <property name="text">
-                         <string>n</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <spacer name="horizontalSpacer">
-                        <property name="orientation">
-                         <enum>Qt::Horizontal</enum>
-                        </property>
-                        <property name="sizeHint" stdset="0">
-                         <size>
-                          <width>13</width>
-                          <height>18</height>
-                         </size>
-                        </property>
-                       </spacer>
-                      </item>
-                      <item>
-                       <widget class="QLineEdit" name="lineEdit_n">
-                        <property name="maximumSize">
-                         <size>
-                          <width>60</width>
-                          <height>16777215</height>
-                         </size>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </item>
-                    <item>
-                     <spacer name="verticalSpacer">
-                      <property name="orientation">
-                       <enum>Qt::Vertical</enum>
-                      </property>
-                      <property name="sizeHint" stdset="0">
-                       <size>
-                        <width>103</width>
-                        <height>13</height>
-                       </size>
-                      </property>
-                     </spacer>
-                    </item>
-                    <item>
-                     <layout class="QHBoxLayout" name="horizontalLayout_2">
-                      <item>
-                       <widget class="QLabel" name="label_p">
-                        <property name="font">
-                         <font>
-                          <family>Agency FB</family>
-                          <pointsize>12</pointsize>
-                         </font>
-                        </property>
-                        <property name="text">
-                         <string>p</string>
-                        </property>
-                       </widget>
-                      </item>
-                      <item>
-                       <spacer name="horizontalSpacer_2">
-                        <property name="orientation">
-                         <enum>Qt::Horizontal</enum>
-                        </property>
-                        <property name="sizeHint" stdset="0">
-                         <size>
-                          <width>13</width>
-                          <height>18</height>
-                         </size>
-                        </property>
-                       </spacer>
-                      </item>
-                      <item>
-                       <widget class="QLineEdit" name="lineEdit_p">
-                        <property name="maximumSize">
-                         <size>
-                          <width>60</width>
-                          <height>16777215</height>
-                         </size>
-                        </property>
-                       </widget>
-                      </item>
-                     </layout>
-                    </item>
-                   </layout>
-                  </item>
-                  <item>
-                   <spacer name="horizontalSpacer_10">
-                    <property name="orientation">
-                     <enum>Qt::Horizontal</enum>
-                    </property>
-                    <property name="sizeHint" stdset="0">
-                     <size>
-                      <width>118</width>
-                      <height>20</height>
-                     </size>
-                    </property>
-                   </spacer>
-                  </item>
-                 </layout>
-                </item>
-                <item>
-                 <spacer name="verticalSpacer_2">
-                  <property name="orientation">
-                   <enum>Qt::Vertical</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>232</width>
-                    <height>13</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <layout class="QHBoxLayout" name="horizontalLayout_4">
-                  <item>
-                   <widget class="QLabel" name="label_style">
+                   <widget class="QLabel" name="label_n">
                     <property name="font">
                      <font>
                       <family>Agency FB</family>
-                      <pointsize>11</pointsize>
+                      <pointsize>12</pointsize>
                      </font>
                     </property>
                     <property name="text">
-                     <string>Style</string>
+                     <string>n</string>
                     </property>
                    </widget>
                   </item>
                   <item>
-                   <spacer name="horizontalSpacer_3">
+                   <spacer name="horizontalSpacer">
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
                       <width>13</width>
-                      <height>20</height>
+                      <height>18</height>
                      </size>
                     </property>
                    </spacer>
                   </item>
                   <item>
-                   <widget class="QComboBox" name="comboBox_style">
-                    <item>
-                     <property name="text">
-                      <string>pdf</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>cdf</string>
-                     </property>
-                    </item>
+                   <widget class="QLineEdit" name="lineEdit_n">
+                    <property name="maximumSize">
+                     <size>
+                      <width>60</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <spacer name="verticalSpacer">
+                  <property name="orientation">
+                   <enum>Qt::Vertical</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>103</width>
+                    <height>13</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                  <item>
+                   <widget class="QLabel" name="label_p">
+                    <property name="font">
+                     <font>
+                      <family>Agency FB</family>
+                      <pointsize>12</pointsize>
+                     </font>
+                    </property>
+                    <property name="text">
+                     <string>p</string>
+                    </property>
                    </widget>
                   </item>
                   <item>
-                   <spacer name="horizontalSpacer_4">
+                   <spacer name="horizontalSpacer_2">
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
-                      <width>118</width>
-                      <height>20</height>
+                      <width>13</width>
+                      <height>18</height>
                      </size>
                     </property>
                    </spacer>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEdit_p">
+                    <property name="maximumSize">
+                     <size>
+                      <width>60</width>
+                      <height>16777215</height>
+                     </size>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
                </layout>
               </item>
               <item>
-               <spacer name="verticalSpacer_3">
+               <spacer name="horizontalSpacer_10">
                 <property name="orientation">
-                 <enum>Qt::Vertical</enum>
+                 <enum>Qt::Horizontal</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
-                  <width>228</width>
-                  <height>13</height>
+                  <width>118</width>
+                  <height>20</height>
                  </size>
                 </property>
                </spacer>
               </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_5">
-                <item>
-                 <widget class="QLabel" name="label_area">
-                  <property name="font">
-                   <font>
-                    <family>Agency FB</family>
-                    <pointsize>11</pointsize>
-                   </font>
-                  </property>
-                  <property name="text">
-                   <string>Area</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <spacer name="horizontalSpacer_17">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>13</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="comboBox_area">
-                  <item>
-                   <property name="text">
-                    <string>None</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>x&lt;=a</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>a&lt;=x&lt;=b</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>x&gt;=b</string>
-                   </property>
-                  </item>
-                 </widget>
-                </item>
-                <item>
-                 <spacer name="horizontalSpacer_5">
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
-                  </property>
-                  <property name="sizeHint" stdset="0">
-                   <size>
-                    <width>88</width>
-                    <height>20</height>
-                   </size>
-                  </property>
-                 </spacer>
-                </item>
-               </layout>
-              </item>
              </layout>
             </item>
             <item>
-             <spacer name="verticalSpacer_4">
+             <spacer name="verticalSpacer_2">
               <property name="orientation">
                <enum>Qt::Vertical</enum>
               </property>
               <property name="sizeHint" stdset="0">
                <size>
-                <width>20</width>
-                <height>18</height>
+                <width>232</width>
+                <height>13</height>
                </size>
               </property>
              </spacer>
             </item>
             <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_6">
+             <layout class="QHBoxLayout" name="horizontalLayout_4">
               <item>
-               <widget class="QLabel" name="label_a">
+               <widget class="QLabel" name="label_style">
                 <property name="font">
                  <font>
                   <family>Agency FB</family>
-                  <pointsize>12</pointsize>
+                  <pointsize>11</pointsize>
                  </font>
                 </property>
                 <property name="text">
-                 <string>a</string>
+                 <string>Style</string>
                 </property>
                </widget>
               </item>
               <item>
-               <spacer name="horizontalSpacer_6">
+               <spacer name="horizontalSpacer_3">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
                   <width>13</width>
-                  <height>21</height>
+                  <height>20</height>
                  </size>
                 </property>
                </spacer>
               </item>
               <item>
-               <widget class="QLineEdit" name="lineEdit_a">
-                <property name="maximumSize">
-                 <size>
-                  <width>60</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
+               <widget class="QComboBox" name="comboBox_style">
+                <item>
+                 <property name="text">
+                  <string>pdf</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>cdf</string>
+                 </property>
+                </item>
                </widget>
               </item>
               <item>
-               <spacer name="horizontalSpacer_7">
+               <spacer name="horizontalSpacer_4">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
                 <property name="sizeHint" stdset="0">
                  <size>
-                  <width>13</width>
-                  <height>21</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_b">
-                <property name="font">
-                 <font>
-                  <family>Agency FB</family>
-                  <pointsize>12</pointsize>
-                 </font>
-                </property>
-                <property name="text">
-                 <string>b</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_8">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>13</width>
-                  <height>21</height>
-                 </size>
-                </property>
-               </spacer>
-              </item>
-              <item>
-               <widget class="QLineEdit" name="lineEdit_b">
-                <property name="maximumSize">
-                 <size>
-                  <width>60</width>
-                  <height>16777215</height>
-                 </size>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <spacer name="horizontalSpacer_9">
-                <property name="orientation">
-                 <enum>Qt::Horizontal</enum>
-                </property>
-                <property name="sizeHint" stdset="0">
-                 <size>
-                  <width>13</width>
-                  <height>21</height>
+                  <width>118</width>
+                  <height>20</height>
                  </size>
                 </property>
                </spacer>
@@ -434,40 +231,243 @@
            </layout>
           </item>
           <item>
-           <spacer name="verticalSpacer_8">
+           <spacer name="verticalSpacer_3">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>234</width>
-              <height>18</height>
+              <width>228</width>
+              <height>13</height>
              </size>
             </property>
            </spacer>
           </item>
           <item>
-           <widget class="QLabel" name="label_area_result">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
+           <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <item>
+             <widget class="QLabel" name="label_area">
+              <property name="font">
+               <font>
+                <family>Agency FB</family>
+                <pointsize>11</pointsize>
+               </font>
+              </property>
+              <property name="text">
+               <string>Area</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_17">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>13</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QComboBox" name="comboBox_area">
+              <item>
+               <property name="text">
+                <string>None</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>x&lt;=a</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>a&lt;=x&lt;=b</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>x&gt;=b</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_5">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>88</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
           </item>
          </layout>
         </item>
         <item>
-         <spacer name="verticalSpacer_5">
+         <spacer name="verticalSpacer_4">
           <property name="orientation">
            <enum>Qt::Vertical</enum>
           </property>
           <property name="sizeHint" stdset="0">
            <size>
-            <width>234</width>
+            <width>20</width>
             <height>18</height>
            </size>
           </property>
          </spacer>
         </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <widget class="QLabel" name="label_a">
+            <property name="font">
+             <font>
+              <family>Agency FB</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>a</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_6">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>13</width>
+              <height>21</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_a">
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_7">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>13</width>
+              <height>21</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_b">
+            <property name="font">
+             <font>
+              <family>Agency FB</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>b</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_8">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>13</width>
+              <height>21</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="lineEdit_b">
+            <property name="maximumSize">
+             <size>
+              <width>60</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_9">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>13</width>
+              <height>21</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_8">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>234</width>
+          <height>18</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_area_result">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="verticalSpacer_5">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>234</width>
+        <height>18</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_7">
+      <item>
+       <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_7">
           <item>
@@ -505,10 +505,60 @@
           </item>
          </layout>
         </item>
+        <item>
+         <spacer name="verticalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>38</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_8">
+          <item>
+           <spacer name="horizontalSpacer_13">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>88</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_clear">
+            <property name="text">
+             <string>Clear</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_15">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>58</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
        </layout>
       </item>
       <item>
-       <spacer name="verticalSpacer_6">
+       <spacer name="verticalSpacer_7">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -521,9 +571,9 @@
        </spacer>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_8">
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
         <item>
-         <spacer name="horizontalSpacer_13">
+         <spacer name="horizontalSpacer_14">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -536,14 +586,14 @@
          </spacer>
         </item>
         <item>
-         <widget class="QPushButton" name="pushButton_clear">
+         <widget class="QPushButton" name="pushButton_return">
           <property name="text">
-           <string>Clear</string>
+           <string>Return</string>
           </property>
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_15">
+         <spacer name="horizontalSpacer_16">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -556,56 +606,6 @@
          </spacer>
         </item>
        </layout>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <spacer name="verticalSpacer_7">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-      <property name="sizeHint" stdset="0">
-       <size>
-        <width>20</width>
-        <height>38</height>
-       </size>
-      </property>
-     </spacer>
-    </item>
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_9">
-      <item>
-       <spacer name="horizontalSpacer_14">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>88</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_return">
-        <property name="text">
-         <string>Return</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_16">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>58</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
       </item>
      </layout>
     </item>
