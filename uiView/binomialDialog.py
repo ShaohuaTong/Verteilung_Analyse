@@ -8,7 +8,8 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QDoubleValidator
+from PyQt5.QtCore import QRegExp
+from PyQt5.QtGui import QDoubleValidator, QIntValidator, QRegExpValidator
 
 
 class binomialDialog(object):
@@ -194,14 +195,18 @@ class binomialDialog(object):
         self.verticalLayout_5.addLayout(self.horizontalLayout_9)
         self.verticalLayout_6.addLayout(self.verticalLayout_5)
 
-        pDoublevalidator = QDoubleValidator(self)
-        pDoublevalidator.setRange(-99999999, 99999999)
-        pDoublevalidator.setNotation(QDoubleValidator.StandardNotation)
-        pDoublevalidator.setDecimals(2)
-        self.lineEdit_a.setValidator(pDoublevalidator)
-        self.lineEdit_b.setValidator(pDoublevalidator)
-        self.lineEdit_n.setValidator(pDoublevalidator)
-        self.lineEdit_p.setValidator(pDoublevalidator)
+        # self.lineEdit_a.setValidator()
+        # self.lineEdit_b.setValidator()
+
+        nIntvalidator = QIntValidator(self)
+        nIntvalidator.setRange(0, 99999)
+        self.lineEdit_n.setValidator(nIntvalidator)
+        self.lineEdit_b.setValidator(nIntvalidator)
+        self.lineEdit_a.setValidator(nIntvalidator)
+
+        rx = QRegExp("^[0-0.99]{1}([.]([0-9]){2})?$")
+        pRegExpValidator = QRegExpValidator(rx)
+        self.lineEdit_p.setValidator(pRegExpValidator)
 
         self.label_a.setHidden(True)
         self.label_b.setHidden(True)
