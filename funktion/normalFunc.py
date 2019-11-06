@@ -105,7 +105,7 @@ class normalShow(normalDialog, QDialog):
 
         elif self.comboBox_area.currentText() == 'a<=x<=b' and a != '' and b != '':
             a, b = float(a), float(b)
-            if  a >= μ-5 and a <= b and b <= μ+5:
+            if  a >= μ-5 and a <= b and b < μ+5:
                 xf = X[np.where((X >= a) & (X <= b))]
                 plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, σσ), color='blue', alpha=0.25)
                 area = cy[int((b - μ + 5) * 100)] - cy[int((a - μ + 5) * 100)]
@@ -114,7 +114,7 @@ class normalShow(normalDialog, QDialog):
 
         elif self.comboBox_area.currentText() == 'x>=b' and b != '':
             b = float(b)
-            if b <= μ+5:
+            if b < μ+5:
                 xf = X[np.where((X >= b) & (X <= μ+5))]
                 plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, σσ), color='blue', alpha=0.25)
                 area = cy[int((b - μ + 5) * 100)]
