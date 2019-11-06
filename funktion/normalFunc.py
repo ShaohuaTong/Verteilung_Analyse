@@ -34,6 +34,7 @@ class normalShow(normalDialog, QDialog):
         self.pushButton_drawing.clicked.connect(self.draw)
         self.pushButton_clear.clicked.connect(self.clear)
 
+
     # def mouse_move(self, event):
     #     x, y = event.xdata, event.ydata
     #     self.label_mouseX.setText("X: %.2f" % 1.233)
@@ -45,25 +46,76 @@ class normalShow(normalDialog, QDialog):
         self.canves.draw()
 
     def draw(self):
-        μ = float(self.lineEdit.text())
-        σσ = float(self.lineEdit_2.text())
-        X = np.arange(μ-5, μ+5, 0.01)
-        Y = stats.norm.pdf(X, μ, math.sqrt(σσ))
+        μ = self.lineEdit_n.text()
+        σσ = self.lineEdit_p.text()
+        a = self.lineEdit_a.text()
+        b = self.lineEdit_b.text()
 
 
-        if self.comboBox.currentText() == 'pdf':
-            plt.plot(X, Y, 'ro-')
-            plt.xlabel('Durchschnittswert')
-            plt.ylabel('probalility')
-            plt.grid(b=True, which='major', axis='both', alpha=0.5, color='skyblue', linestyle='--', linewidth=1)
+        if μ != '' and σσ != '':
+            plt.clf()
+            self.label_a.setHidden(False)
+            self.label_b.setHidden(False)
+            self.lineEdit_a.setHidden(False)
+            self.lineEdit_b.setHidden(False)
+            self.label_area.setHidden(False)
+            self.comboBox_area.setHidden(False)
 
-            vertex1= math.sqrt(2 * math.pi * σσ)
-            plt.text( μ, 1/vertex1, '(%.2f, %.3f)' % (μ, 1/vertex1), color='mediumvioletred')
+            μ = float(μ)
+            σσ = float(σσ)
+            X = np.arange(μ - 5, μ + 5, 0.01)
+            Y = stats.norm.pdf(X, μ, math.sqrt(σσ))
 
 
-            self.canves.draw()
-        elif self.comboBox.currentText() == 'cdf':
-            CY = np.cumsum(Y * 1)
-            plt.plot(X, CY, 'ro-')
-            plt.grid(b=True, which='major', axis='both', alpha=0.5, color='skyblue', linestyle='--', linewidth=2)
-            self.canves.draw()
+            if self.comboBox_style.currentText() == 'pdf':
+                plt.plot(X, Y, 'ro-')
+                plt.xlabel('Durchschnittswert')
+                plt.ylabel('probalility')
+                plt.grid(b=True, which='major', axis='both', alpha=0.5, color='skyblue', linestyle='--', linewidth=1)
+
+                vertex1= math.sqrt(2 * math.pi * σσ)
+                plt.text( μ, 1/vertex1, '(%.2f, %.3f)' % (μ, 1/vertex1), color='mediumvioletred')
+
+                self.draw_area(X, Y, μ, σσ, a, b)
+
+                self.canves.draw()
+            elif self.comboBox_style.currentText() == 'cdf':
+                CY = np.cumsum(Y * 1)
+                plt.plot(X, CY, 'ro-')
+                plt.grid(b=True, which='major', axis='both', alpha=0.5, color='skyblue', linestyle='--', linewidth=2)
+                self.canves.draw()
+
+    def func(self, x):
+        return 0 * x
+
+    def draw_area(self, X, Y, μ, σσ, a, b):
+        cy = np.cumsum(Y * 1)
+        k1 = (μ + 1) * σσ
+        k3 = math.floor(k1)
+
+        if self.comboBox_area.currentText() == 'x<=a' and a != '':
+            a = float(a)
+            if a > μ - 5:
+                xf = X[np.where((X >=μ - 5 ) & (X <= a))]
+                plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, σσ), color='blue', alpha=0.25)
+                area = cy[int((a - μ + 5) * 100)]
+                area = area / 100
+                self.label_output.setText('Probality  %.3f' % area)
+
+        elif self.comboBox_area.currentText() == 'a<=x<=b' and a != '' and b != '':
+            a, b = float(a), float(b)
+            if  a >= μ-5 and a <= b and b <= μ+5:
+                xf = X[np.where((X >= a) & (X <= b))]
+                plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, σσ), color='blue', alpha=0.25)
+                area = cy[int((b - μ + 5) * 100)] - cy[int((a - μ + 5) * 100)]
+                area = area / 100
+                self.label_output.setText('Probality  %.3f' % area)
+
+        elif self.comboBox_area.currentText() == 'x>=b' and b != '':
+            b = float(b)
+            if b <= μ+5:
+                xf = X[np.where((X >= b) & (X <= μ+5))]
+                plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, σσ), color='blue', alpha=0.25)
+                area = cy[int((b - μ + 5) * 100)]
+                area = 1 - area / 100
+                self.label_output.setText('Probality  %.3f' % area)
