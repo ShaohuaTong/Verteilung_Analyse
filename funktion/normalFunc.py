@@ -33,6 +33,7 @@ class normalShow(normalDialog, QDialog):
 
         self.pushButton_drawing.clicked.connect(self.draw)
         self.pushButton_clear.clicked.connect(self.clear)
+        self.pushButton_return.clicked.connect(self.clear)
 
 
     # def mouse_move(self, event):
