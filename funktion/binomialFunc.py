@@ -91,6 +91,8 @@ class binomialShow(binomialDialog, QDialog):
                     plt.scatter(x[len(x)-1], cy[len(x)-1], color='black', s=5)
                     # plt.plot(x, cy, 'ro-')
                     plt.grid(b=True, which='major', axis='both', alpha=0.5, color='skyblue', linestyle='--', linewidth=2)
+                    
+
                     self.canves.draw()
 
     def func(self, x):
@@ -109,10 +111,16 @@ class binomialShow(binomialDialog, QDialog):
 
     def draw_area(self, x, y, n, p, a, b):
         cy = np.cumsum(y * 1)
-        k1 = (n + 1) * p
-        k3 = math.floor(k1)
 
-        if self.comboBox_area.currentText() == 'x<=a' and a != '':
+        if self.comboBox_area.currentText() == 'x=a' and a != '':
+            a = int(a)
+            if a >= 0 and a <= n:
+                if a == 0:
+                    self.label_area_result.setText('Probality of this point is %.3f' % (cy[0]))
+                else:
+                    self.label_area_result.setText('Probality of this point is %.3f' % (cy[a] - cy[a - 1]))
+
+        elif self.comboBox_area.currentText() == 'x<=a' and a != '':
             a = int(a)
             if a >= 0:
                 xf = x[np.where((x >= 0) & (x <= a))]
@@ -121,7 +129,7 @@ class binomialShow(binomialDialog, QDialog):
                     area = cy[n]
                 else:
                     area = cy[a]
-                self.label_area_result.setText('Probality of area is %.3f' % area)
+                self.label_area_result.setText('Probability sum is %.3f' % area)
 
 
         elif self.comboBox_area.currentText() == 'a<=x<=b' and a != '' and b != '':
@@ -133,7 +141,7 @@ class binomialShow(binomialDialog, QDialog):
                     area = cy[b] - 0
                 else:
                     area = cy[b] - cy[a - 1]
-                self.label_area_result.setText('Probality of area is %.3f' % area)
+                self.label_area_result.setText('Probability sum is %.3f' % area)
 
         elif self.comboBox_area.currentText() == 'x>=b' and b != '':
             b = int(b)
@@ -144,7 +152,7 @@ class binomialShow(binomialDialog, QDialog):
                     area = 1
                 else:
                     area = 1 - cy[b - 1]
-                self.label_area_result.setText('Probality of area is %.3f' % area)
+                self.label_area_result.setText('Probability sum is %.3f' % area)
 
 
   # pDoublevalidator = QDoubleValidator(self)
