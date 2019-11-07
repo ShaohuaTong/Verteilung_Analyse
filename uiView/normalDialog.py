@@ -8,6 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtGui import QDoubleValidator
 
 
 class normalDialog(object):
@@ -205,6 +206,15 @@ class normalDialog(object):
         self.horizontalLayout_9.addItem(spacerItem26)
         self.verticalLayout_5.addLayout(self.horizontalLayout_9)
         self.verticalLayout_6.addLayout(self.verticalLayout_5)
+
+        pDoublevalidator = QDoubleValidator(self)
+        pDoublevalidator.setRange(-99999, 99999)
+        pDoublevalidator.setNotation(QDoubleValidator.StandardNotation)
+        pDoublevalidator.setDecimals(2)
+        self.lineEdit_n.setValidator(pDoublevalidator)
+        self.lineEdit_p.setValidator(pDoublevalidator)
+        self.lineEdit_a.setValidator(pDoublevalidator)
+        self.lineEdit_b.setValidator(pDoublevalidator)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)

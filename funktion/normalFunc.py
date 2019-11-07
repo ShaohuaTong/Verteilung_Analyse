@@ -45,6 +45,17 @@ class normalShow(normalDialog, QDialog):
     def clear(self):
         plt.clf()
         self.canves.draw()
+        self.label_a.setHidden(True)
+        self.label_b.setHidden(True)
+        self.lineEdit_a.setHidden(True)
+        self.lineEdit_b.setHidden(True)
+        self.label_area.setHidden(True)
+        self.comboBox_area.setHidden(True)
+        self.lineEdit_a.backspace()
+        self.lineEdit_b.backspace()
+        self.lineEdit_n.backspace()
+        self.lineEdit_p.backspace()
+        self.label_output.setHidden(True)
 
     def draw(self):
         μ = self.lineEdit_n.text()
@@ -96,27 +107,68 @@ class normalShow(normalDialog, QDialog):
 
         if self.comboBox_area.currentText() == 'x<=a' and a != '':
             a = float(a)
-            if a > μ - 5:
+
+            if a > μ - 5 and a <= μ + 5:
                 xf = X[np.where((X >=μ - 5 ) & (X <= a))]
                 plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, σσ), color='blue', alpha=0.25)
-                area = cy[int((a - μ + 5) * 100)]
+                area = cy[int((a - μ + 5) * 100)-1]
                 area = area / 100
-                self.label_output.setText('Probality  %.3f' % area)
+                self.label_output.setText('Probality  %.2f' % area)
+
+            if a > μ + 5:
+                xf = X[np.where((X >= μ - 5) & (X <= μ + 5))]
+                plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, σσ), color='blue', alpha=0.25)
+                self.label_output.setText('Probality  1.00' )
+
+            if a <= μ - 5:
+                self.label_output.setText('Probality  0.00')
 
         elif self.comboBox_area.currentText() == 'a<=x<=b' and a != '' and b != '':
             a, b = float(a), float(b)
-            if  a >= μ-5 and a <= b and b < μ+5:
+            if  a >= μ-5 and a <= b and b <= μ+5:
                 xf = X[np.where((X >= a) & (X <= b))]
                 plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, σσ), color='blue', alpha=0.25)
-                area = cy[int((b - μ + 5) * 100)] - cy[int((a - μ + 5) * 100)]
+                area = cy[int((b - μ + 5) * 100) -1] - cy[int((a - μ + 5) * 100)]
                 area = area / 100
-                self.label_output.setText('Probality  %.3f' % area)
+                self.label_output.setText('Probality  %.2f' % area)
+
+            if b <= μ-5 and a <= b:
+                self.label_output.setText('Probality  0.00')
+
+            if a< μ-5 and a <= b and μ-5 <= b <= μ+5:
+                xf = X[np.where((X >= μ-5) & (X <= b))]
+                plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, σσ), color='blue', alpha=0.25)
+                area = cy[int((b - μ + 5) * 100) - 1]
+                area = area / 100
+                self.label_output.setText('Probality  %.2f' % area)
+
+            if b< μ-5 and a <= b:
+                self.label_output.setText('Probality  0.00')
+
+            if μ-5 < a < μ+5 and a <= b and b > μ+5 :
+                xf = X[np.where((X >= a) & (X <= μ+5))]
+                plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, σσ), color='blue', alpha=0.25)
+                area = cy[int((a - μ + 5) * 100)]
+                area = 1 - area / 100
+                self.label_output.setText('Probality  %.2f' % area)
+
+            if a >= μ+5 and a <= b:
+                self.label_output.setText('Probality  0.00' )
+
+            if a > b:
+                self.label_output.setText('ungültig a,b')
 
         elif self.comboBox_area.currentText() == 'x>=b' and b != '':
             b = float(b)
-            if b < μ+5:
+            if μ-5 < b < μ+5:
                 xf = X[np.where((X >= b) & (X <= μ+5))]
                 plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, σσ), color='blue', alpha=0.25)
                 area = cy[int((b - μ + 5) * 100)]
                 area = 1 - area / 100
-                self.label_output.setText('Probality  %.3f' % area)
+                self.label_output.setText('Probality  %.2f' % area)
+            if b>= μ+5:
+                self.label_output.setText('Probality  0.00')
+            if b <= μ-5:
+                xf = X[np.where((X >= μ - 5) & (X <= μ + 5))]
+                plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, σσ), color='blue', alpha=0.25)
+                self.label_output.setText('Probality  1.00')
