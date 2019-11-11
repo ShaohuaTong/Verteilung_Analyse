@@ -47,6 +47,7 @@ class binomialShow(binomialDialog, QDialog):
         self.canves.draw()
 
     def draw(self):
+
         self.label_area_result.setText('')
         n = self.lineEdit_n.text()
         p = self.lineEdit_p.text()
@@ -91,7 +92,7 @@ class binomialShow(binomialDialog, QDialog):
                     plt.scatter(x[len(x)-1], cy[len(x)-1], color='black', s=5)
                     # plt.plot(x, cy, 'ro-')
                     plt.grid(b=True, which='major', axis='both', alpha=0.5, color='skyblue', linestyle='--', linewidth=2)
-                    
+
 
                     self.canves.draw()
 
