@@ -51,11 +51,13 @@ class normalShow(normalDialog, QDialog):
         self.lineEdit_b.setHidden(True)
         self.label_area.setHidden(True)
         self.comboBox_area.setHidden(True)
-        self.lineEdit_a.backspace()
-        self.lineEdit_b.backspace()
-        self.lineEdit_n.backspace()
-        self.lineEdit_p.backspace()
         self.label_output.setHidden(True)
+        self.lineEdit_a.clear()
+        self.lineEdit_b.clear()
+        self.lineEdit_n.clear()
+        self.lineEdit_p.clear()
+        self.label_output.clear()
+
 
     def draw(self):
         μ = self.lineEdit_n.text()
@@ -72,6 +74,7 @@ class normalShow(normalDialog, QDialog):
             self.lineEdit_b.setHidden(False)
             self.label_area.setHidden(False)
             self.comboBox_area.setHidden(False)
+            self.label_output.setHidden(False)
 
             μ = float(μ)
             σσ = float(σσ)
