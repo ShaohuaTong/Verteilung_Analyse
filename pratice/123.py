@@ -17,4 +17,3 @@ CY = np.cumsum(Y * dx)
 plot(X, Y)
 plot(X, CY, 'r--')
 
-show()
