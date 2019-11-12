@@ -2,7 +2,7 @@ import sys
 import os
 from PyQt5.QtWidgets import QApplication
 from funktion.coverFun import CircleLineWindow
-from funktion.binomialFunc import binomialShow
+from funktion.binomialFunc import BinomialShow
 from funktion.normalFunc import normalShow
 import warnings
 import matplotlib.cbook
@@ -19,7 +19,7 @@ if __name__ == '__main__':
 
     app = QApplication(sys.argv)
     cover = CircleLineWindow()
-    binomial = binomialShow()
+    binomial = BinomialShow()
     normal = normalShow()
 
     cover.resize(900, 800)
