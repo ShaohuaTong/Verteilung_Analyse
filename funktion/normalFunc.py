@@ -60,7 +60,7 @@ class normalShow(normalDialog, QDialog):
         x = self.lineEdit_x.text()
 
 
-        if μ != '' and σσ != '':
+        if μ != '' and σσ != '' and σσ != '0':
             plt.clf()
             self.hidden()
             μ = float(μ)
@@ -111,7 +111,7 @@ class normalShow(normalDialog, QDialog):
         if a == '-' or b == '-':
             self.label_output.setText('Ungültiger wert')
 
-        if self.comboBox_area.currentText() == 'x<=a' and a != '':
+        elif self.comboBox_area.currentText() == 'x<=a' and a != '':
             a = float(a)
 
             if a > μ - 5 - σσ and a <= μ + 5 + σσ:
