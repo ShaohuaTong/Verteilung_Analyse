@@ -59,7 +59,7 @@ class normalShow(normalDialog, QDialog):
         b = self.lineEdit_b.text()
         x = self.lineEdit_x.text()
 
-        
+
         if μ != '' and σσ != '':
             plt.clf()
             self.hidden()
@@ -99,17 +99,17 @@ class normalShow(normalDialog, QDialog):
             if x > μ - 5 - σσ and x <= μ + 5 + σσ:
                 sum = cy[int((x - μ + σσ + 5) * 100) - 1]
                 sum = sum / 100
-                self.label_output.setHidden(False)
                 self.label_output.setText('Probality  %.2f' % sum)
             if x > μ + 5 + σσ:
-                self.label_output.setHidden(False)
                 self.label_output.setText('Probality  1.00')
             if x <= μ - 5 - σσ:
-                self.label_output.setHidden(False)
                 self.label_output.setText('Probality  0.00')
 
     def draw_area(self, X, Y, μ, σσ, a, b):
         cy = np.cumsum(Y * 1)
+
+        if a == '-' or b == '-':
+            self.label_output.setText('Ungültiger wert')
 
         if self.comboBox_area.currentText() == 'x<=a' and a != '':
             a = float(a)
@@ -119,17 +119,14 @@ class normalShow(normalDialog, QDialog):
                 plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, math.sqrt(σσ)), color='blue', alpha=0.25)
                 area = cy[int((a - μ + σσ + 5) * 100) - 1]
                 area = area / 100
-                self.label_output.setHidden(False)
                 self.label_output.setText('Probality  %.2f' % area)
 
             if a > μ + 5 + σσ:
                 xf = X[np.where((X >= μ - 5) & (X <= μ + 5))]
                 plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, math.sqrt(σσ)), color='blue', alpha=0.25)
-                self.label_output.setHidden(False)
                 self.label_output.setText('Probality  1.00')
 
             if a <= μ - 5 - σσ:
-                self.label_output.setHidden(False)
                 self.label_output.setText('Probality  0.00')
 
         elif self.comboBox_area.currentText() == 'a<=x<=b' and a != '' and b != '':
@@ -139,11 +136,9 @@ class normalShow(normalDialog, QDialog):
                 plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, math.sqrt(σσ)), color='blue', alpha=0.25)
                 area = cy[int((b - μ + σσ + 5) * 100) - 1] - cy[int((a - μ + σσ + 5) * 100)]
                 area = area / 100
-                self.label_output.setHidden(False)
                 self.label_output.setText('Probality  %.2f' % area)
 
             if b <= μ - 5 - σσ and a <= b:
-                self.label_output.setHidden(False)
                 self.label_output.setText('Probality  0.00')
 
             if a < μ - 5 - σσ and a <= b and μ - 5 - σσ <= b <= μ + 5 + σσ:
@@ -151,13 +146,11 @@ class normalShow(normalDialog, QDialog):
                 plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, math.sqrt(σσ)), color='blue', alpha=0.25)
                 area = cy[int((b - μ + σσ + 5) * 100) - 1]
                 area = area / 100
-                self.label_output.setHidden(False)
                 self.label_output.setText('Probality  %.2f' % area)
 
             if a < μ - 5 - σσ and a <= b and b > μ + 5 + σσ:
                 xf = X[np.where((X >= μ - 5 - σσ) & (X <= μ + 5 + σσ))]
                 plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, math.sqrt(σσ)), color='blue', alpha=0.25)
-                self.label_output.setHidden(False)
                 self.label_output.setText('Probality  1.00')
 
             if μ - 5 - σσ < a < μ + 5 + σσ and a <= b and b > μ + 5 + σσ:
@@ -165,15 +158,12 @@ class normalShow(normalDialog, QDialog):
                 plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, math.sqrt(σσ)), color='blue', alpha=0.25)
                 area = cy[int((a - μ + σσ + 5) * 100)]
                 area = 1 - area / 100
-                self.label_output.setHidden(False)
                 self.label_output.setText('Probality  %.2f' % area)
 
             if μ + 5 + σσ <= a <= b:
-                self.label_output.setHidden(False)
                 self.label_output.setText('Probality  0.00')
 
             if a > b:
-                self.label_output.setHidden(False)
                 self.label_output.setText('ungültig a,b')
 
         elif self.comboBox_area.currentText() == 'x>=b' and b != '':
@@ -183,15 +173,12 @@ class normalShow(normalDialog, QDialog):
                 plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, math.sqrt(σσ)), color='blue', alpha=0.25)
                 area = cy[int((b - μ + σσ + 5) * 100)]
                 area = 1 - area / 100
-                self.label_output.setHidden(False)
                 self.label_output.setText('Probality  %.2f' % area)
             if b >= μ + 5 + σσ:
-                self.label_output.setHidden(False)
                 self.label_output.setText('Probality  0.00')
             if b <= μ - 5 - σσ:
                 xf = X[np.where((X >= μ - 5 - σσ) & (X <= μ + 5 + σσ))]
                 plt.fill_between(xf, self.func(xf), stats.norm.pdf(xf, μ, math.sqrt(σσ)), color='blue', alpha=0.25)
-                self.label_output.setHidden(False)
                 self.label_output.setText('Probality  1.00')
 
     def hidden(self):
@@ -201,7 +188,6 @@ class normalShow(normalDialog, QDialog):
         self.lineEdit_b.setHidden(True)
         self.label_x.setHidden(True)
         self.lineEdit_x.setHidden(True)
-        self.label_output.setHidden(True)
         self.comboBox_area.setHidden(True)
         self.label_area.setHidden(True)
 
@@ -210,7 +196,6 @@ class normalShow(normalDialog, QDialog):
         self.label_b.setHidden(False)
         self.lineEdit_a.setHidden(False)
         self.lineEdit_b.setHidden(False)
-        self.label_output.setHidden(False)
         self.comboBox_area.setHidden(False)
         self.label_area.setHidden(False)
 
