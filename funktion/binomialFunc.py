@@ -94,8 +94,9 @@ class BinomialShow(BinomialDialog, QDialog):
 
     def draw_area(self, x, y, n, p, a, b):
         cy = np.cumsum(y * 1)
-
-        if self.comboBox_area.currentText() == 'x=a' and a != '' and a != '+' and a != '-' and a != '.':
+        if a == '-' or a == '+' or a == '.' or b == '-' or b == '+' or b == '.':
+            self.label_area_result.setText('invalid a or b')
+        elif self.comboBox_area.currentText() == 'x=a':
             a = float(a)
             if a - math.floor(a) != 0 or a > n or a < 0:
                 self.label_area_result.setText('invalid a')
@@ -105,7 +106,7 @@ class BinomialShow(BinomialDialog, QDialog):
                 else:
                     self.label_area_result.setText('Probability of the point is %.3f' % (cy[int(a)] - cy[int(a) - 1]))
 
-        elif self.comboBox_area.currentText() == 'x<=a' and a != '' and a != '+' and a != '-' and a != '.':
+        elif self.comboBox_area.currentText() == 'x<=a':
             a = float(a)
             if 0 <= a <= n:
                 a = int(math.floor(a))
@@ -120,7 +121,7 @@ class BinomialShow(BinomialDialog, QDialog):
                 self.label_area_result.setText('Probability sum is 0.000')
             elif a > n:
                 self.draw_area(x, y, n, p, n, b)
-        elif self.comboBox_area.currentText() == 'x>=b' and b != '' and b != '+' and b != '-' and b != '.':
+        elif self.comboBox_area.currentText() == 'x>=b':
             b = float(b)
             b = int(math.ceil(b))
             if 0 <= b <= n:
@@ -135,8 +136,7 @@ class BinomialShow(BinomialDialog, QDialog):
                 self.label_area_result.setText('Probability sum is 0.000')
             elif b < 0:
                 self.draw_area(x, y, n, p, a, 0)
-        elif self.comboBox_area.currentText() == 'a<=x<=b' and a != '' and a != '+' and a != '-' and a != '.' \
-                and b != ' ' and b != '+' and b != '-' and b != '.':
+        elif self.comboBox_area.currentText() == 'a<=x<=b':
             a, b = float(a), float(b)
             if a > b:
                 self.label_area_result.setText('b should bigger than a')
