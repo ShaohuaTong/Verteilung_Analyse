@@ -32,13 +32,14 @@ class BinomialShow(BinomialDialog, QDialog):
         self.pushButton_return.clicked.connect(self.clear)
 
     def clear(self):
+        plt.clf()
+        self.canves.draw()
         self.hidden()
         self.lineEdit_a.clear()
         self.lineEdit_b.clear()
         self.lineEdit_point.clear()
         self.label_area_result.clear()
-        plt.clf()
-        self.canves.draw()
+
 
     def draw(self):
         n = self.lineEdit_n.text()
@@ -47,7 +48,7 @@ class BinomialShow(BinomialDialog, QDialog):
         b = self.lineEdit_b.text()
         point = self.lineEdit_point.text()
 
-        self.hidden();
+        self.hidden()
         self.label_area_result.clear()
 
         if n != '' and p != '':
