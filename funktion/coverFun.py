@@ -14,7 +14,6 @@ from math import floor, pi, cos, sin
 from random import random, randint
 from time import time
 
-from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtCore import QTimer, Qt
 from PyQt5.QtGui import QColor, QPainter, QPainterPath, QPen
 from PyQt5.QtWidgets import QWidget, QDialog, QApplication

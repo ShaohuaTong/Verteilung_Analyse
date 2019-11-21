@@ -9,7 +9,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QRegExp
-from PyQt5.QtGui import QIntValidator, QRegExpValidator
+from PyQt5.QtGui import QIntValidator, QRegExpValidator, QDoubleValidator
 
 from uiView.utils import load_style, button_style
 
@@ -246,6 +246,13 @@ class BinomialDialog(object):
         rx = QRegExp("^[0-1]{1}([.]([0-9]){2})?$")
         pRegExpValidator = QRegExpValidator(rx)
         self.lineEdit_p.setValidator(pRegExpValidator)
+
+        pDoublevalidator = QDoubleValidator(self)
+        pDoublevalidator.setRange(-99999, 99999)
+        pDoublevalidator.setNotation(QDoubleValidator.StandardNotation)
+        pDoublevalidator.setDecimals(2)
+        self.lineEdit_a.setValidator(pDoublevalidator)
+        self.lineEdit_b.setValidator(pDoublevalidator)
 
         self.label_a.setHidden(True)
         self.label_b.setHidden(True)
