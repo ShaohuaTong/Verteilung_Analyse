@@ -9,8 +9,7 @@ import numpy as np
 from scipy import stats
 from scipy.special import comb, perm
 
-from uiView.normalDialog import normalDialog
-from basisVerteilung.binomial_distribution import count, binomial
+from uiView.normalDialog import NormalDialog
 
 import matplotlib
 
@@ -19,9 +18,9 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 import matplotlib.pyplot as plt
 
 
-class normalShow(normalDialog, QDialog):
+class NormalShow(NormalDialog, QDialog):
     def __init__(self):
-        super(normalDialog, self).__init__()
+        super(NormalDialog, self).__init__()
         self.setupUi(self)
         self.setWindowTitle("normal_distribution")
         self.setMinimumSize(0, 0)
@@ -108,7 +107,7 @@ class normalShow(normalDialog, QDialog):
     def draw_area(self, X, Y, μ, σσ, a, b):
         cy = np.cumsum(Y * 1)
 
-        if a == '-' or b == '-':
+        if a == '-' or b == '-' or a == '+' or b == '+' or a =='.' or b == '.':
             self.label_output.setText('Ungültiger wert')
 
         elif self.comboBox_area.currentText() == 'x<=a' and a != '':

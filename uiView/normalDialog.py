@@ -11,7 +11,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QDoubleValidator
 
 
-class normalDialog(object):
+class NormalDialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(1080, 780)

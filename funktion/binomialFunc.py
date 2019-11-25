@@ -60,7 +60,7 @@ class BinomialShow(BinomialDialog, QDialog):
                 x = np.arange(0, n + 1)
                 y = stats.binom.pmf(x, n, p)
 
-                if self.comboBox_style.currentText() == 'pdf':
+                if self.comboBox_style.currentText() == 'pmf':
                     self.show_pdf()
                     for i in range(len(x)):
                         plt.scatter(x[i], y[i], color='black', s=5)
@@ -76,7 +76,8 @@ class BinomialShow(BinomialDialog, QDialog):
                     self.canves.draw()
                 elif self.comboBox_style.currentText() == 'cdf':
                     self.show_cdf()
-                    cy = np.cumsum(y * 1)
+                    # cy = np.cumsum(y * 1)
+                    cy = stats.binom.cdf(x, n, p)
                     for i in range(len(x) - 1):
                         plt.scatter(x[i], cy[i], color='black', s=5)
                         plt.plot([x[i], x[i]], [cy[i], cy[i + 1]], label='sin')
@@ -96,7 +97,7 @@ class BinomialShow(BinomialDialog, QDialog):
         cy = np.cumsum(y * 1)
         if a == '-' or a == '+' or a == '.' or b == '-' or b == '+' or b == '.':
             self.label_area_result.setText('invalid a or b')
-        elif self.comboBox_area.currentText() == 'x=a':
+        elif self.comboBox_area.currentText() == 'x=a' and a != '':
             a = float(a)
             if a - math.floor(a) != 0 or a > n or a < 0:
                 self.label_area_result.setText('invalid a')
@@ -106,22 +107,19 @@ class BinomialShow(BinomialDialog, QDialog):
                 else:
                     self.label_area_result.setText('Probability of the point is %.3f' % (cy[int(a)] - cy[int(a) - 1]))
 
-        elif self.comboBox_area.currentText() == 'x<=a':
+        elif self.comboBox_area.currentText() == 'x<=a' and a != '':
             a = float(a)
             if 0 <= a <= n:
                 a = int(math.floor(a))
                 xf = x[np.where((x >= 0) & (x <= a))]
                 plt.fill_between(xf, self.func(xf), stats.binom.pmf(xf, n, p), color='blue', alpha=0.25)
-                if a == n:
-                    area = cy[n]
-                else:
-                    area = cy[a]
+                area = cy[a]
                 self.label_area_result.setText('Probability sum is %.3f' % area)
             elif a < 0:
                 self.label_area_result.setText('Probability sum is 0.000')
             elif a > n:
                 self.draw_area(x, y, n, p, n, b)
-        elif self.comboBox_area.currentText() == 'x>=b':
+        elif self.comboBox_area.currentText() == 'x>=b' and b != '':
             b = float(b)
             b = int(math.ceil(b))
             if 0 <= b <= n:
@@ -136,7 +134,7 @@ class BinomialShow(BinomialDialog, QDialog):
                 self.label_area_result.setText('Probability sum is 0.000')
             elif b < 0:
                 self.draw_area(x, y, n, p, a, 0)
-        elif self.comboBox_area.currentText() == 'a<=x<=b':
+        elif self.comboBox_area.currentText() == 'a<=x<=b' and a != '' and b != '':
             a, b = float(a), float(b)
             if a > b:
                 self.label_area_result.setText('b should bigger than a')
