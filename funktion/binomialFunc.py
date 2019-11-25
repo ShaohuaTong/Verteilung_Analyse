@@ -20,7 +20,7 @@ class BinomialShow(BinomialDialog, QDialog):
         self.setWindowTitle("binomial_distribution")
         self.setMinimumSize(0, 0)
 
-        self.figure = plt.figure(num=1, figsize=(15, 8), facecolor='#FFD7C4')
+        self.figure = plt.figure(num=1, figsize=(15, 8), facecolor='#FFFFFF')
         self.canves = FigureCanvas(self.figure)
 
         # plt.connect('motion_notify_event', self.mouse_move)
