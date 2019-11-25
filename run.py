@@ -21,14 +21,21 @@ if __name__ == '__main__':
     cover.pushButton_2.clicked.connect(cover.hide)
     cover.pushButton_2.clicked.connect(binomial.show)
     cover.pushButton_binomail.clicked.connect(cover.hide)
-    # cover.pushButton_binomail.clicked.connect(binomial.show)
-    cover.pushButton_binomail.clicked.connect(hypergeometric.show)
+    cover.pushButton_binomail.clicked.connect(binomial.show)
+
 
 
     cover.pushButton_3.clicked.connect(cover.hide)
     cover.pushButton_3.clicked.connect(normal.show)
     cover.pushButton_normal.clicked.connect(cover.hide)
     cover.pushButton_normal.clicked.connect(normal.show)
+
+    cover.pushButton_4.clicked.connect(cover.hide)
+    cover.pushButton_4.clicked.connect(hypergeometric.show)
+    cover.pushButton.clicked.connect(cover.hide)
+    cover.pushButton.clicked.connect(hypergeometric.show)
+
+
     binomial.pushButton_return.clicked.connect(cover.show)
     binomial.pushButton_return.clicked.connect(binomial.hide)
     normal.pushButton_return.clicked.connect(cover.show)
