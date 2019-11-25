@@ -10,18 +10,162 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from uiView.utils import button_style, load_style
 
+
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(761, 728)
+        Form.resize(795, 728)
         self.gridLayout = QtWidgets.QGridLayout(Form)
         self.gridLayout.setObjectName("gridLayout")
-        spacerItem = QtWidgets.QSpacerItem(98, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem, 0, 0, 1, 1)
+        spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout.addItem(spacerItem, 4, 3, 1, 1)
+        spacerItem1 = QtWidgets.QSpacerItem(120, 17, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem1, 3, 0, 1, 1)
+        spacerItem2 = QtWidgets.QSpacerItem(174, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem2, 5, 0, 1, 1)
+        spacerItem3 = QtWidgets.QSpacerItem(209, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem3, 5, 2, 1, 1)
+        self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem4)
+        self.pushButton_2 = QtWidgets.QPushButton(Form)
+        self.pushButton_2.setMinimumSize(QtCore.QSize(60, 60))
+        self.pushButton_2.setMaximumSize(QtCore.QSize(60, 60))
+        self.pushButton_2.setMouseTracking(True)
+        self.pushButton_2.setAutoFillBackground(False)
+        self.pushButton_2.setStyleSheet("QPushButton#pushButton_2 {\n"
+"    color: white;\n"
+"    font: bold 10pt;\n"
+"    border:none;\n"
+"    min-height: 60px;\n"
+"    min-width: 60px;\n"
+"    border-image:url(Icon.png) -60px 0px no-repeat;\n"
+"}\n"
+"QPushButton#pushButton_2:hover{\n"
+"    color: lightgray;\n"
+"    border-image:url(Icon.png) 0px 0px no-repeat;;\n"
+"}\n"
+"QPushButton#pushButton_2:pressed {\n"
+"    color: lightgray;\n"
+"    border-image:url(Icon.png) -120px 0px no-repeat;;\n"
+"    padding-top: -15px;\n"
+"    padding-bottom: -17px;\n"
+"}")
+        self.pushButton_2.setText("")
+        self.pushButton_2.setCheckable(False)
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.horizontalLayout.addWidget(self.pushButton_2)
+        self.pushButton_binomail = QtWidgets.QPushButton(Form)
+        self.pushButton_binomail.setMinimumSize(QtCore.QSize(350, 40))
+        self.pushButton_binomail.setMaximumSize(QtCore.QSize(350, 40))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
+        self.pushButton_binomail.setFont(font)
+        self.pushButton_binomail.setObjectName("pushButton_binomail")
+        self.horizontalLayout.addWidget(self.pushButton_binomail)
+        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem5)
+        self.verticalLayout.addLayout(self.horizontalLayout)
+        spacerItem6 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem6)
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem7)
+        self.pushButton_3 = QtWidgets.QPushButton(Form)
+        self.pushButton_3.setMinimumSize(QtCore.QSize(60, 60))
+        self.pushButton_3.setMaximumSize(QtCore.QSize(60, 60))
+        self.pushButton_3.setStyleSheet("QPushButton#pushButton_3 {\n"
+"    color: white;\n"
+"    font: bold 10pt;\n"
+"    border:none;\n"
+"    min-height: 60px;\n"
+"    min-width: 60px;\n"
+"    border-image:url(Icon.png) -60px 0px no-repeat;\n"
+"}\n"
+"QPushButton#pushButton_3:hover{\n"
+"    color: lightgray;\n"
+"    border-image:url(Icon.png) 0px 0px no-repeat;;\n"
+"}\n"
+"QPushButton#pushButton_3:pressed {\n"
+"    color: lightgray;\n"
+"    border-image:url(Icon.png) -120px 0px no-repeat;;\n"
+"    padding-top: -15px;\n"
+"    padding-bottom: -17px;\n"
+"}")
+        self.pushButton_3.setText("")
+        self.pushButton_3.setObjectName("pushButton_3")
+        self.horizontalLayout_2.addWidget(self.pushButton_3)
+        self.pushButton_normal = QtWidgets.QPushButton(Form)
+        self.pushButton_normal.setMinimumSize(QtCore.QSize(350, 40))
+        self.pushButton_normal.setMaximumSize(QtCore.QSize(350, 40))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(11)
+        font.setBold(False)
+        font.setWeight(50)
+        self.pushButton_normal.setFont(font)
+        self.pushButton_normal.setObjectName("pushButton_normal")
+        self.horizontalLayout_2.addWidget(self.pushButton_normal)
+        spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem8)
+        self.verticalLayout.addLayout(self.horizontalLayout_2)
+        spacerItem9 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem9)
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem10)
+        self.pushButton = QtWidgets.QPushButton(Form)
+        self.pushButton.setMaximumSize(QtCore.QSize(60, 60))
+        self.pushButton.setStyleSheet("QPushButton#pushButton {\n"
+"    color: white;\n"
+"    font: bold 10pt;\n"
+"    border:none;\n"
+"    min-height: 60px;\n"
+"    min-width: 60px;\n"
+"    border-image:url(Icon.png) -60px 0px no-repeat;\n"
+"}\n"
+"QPushButton#pushButton:hover{\n"
+"    color: lightgray;\n"
+"    border-image:url(Icon.png) 0px 0px no-repeat;;\n"
+"}\n"
+"QPushButton#pushButton:pressed {\n"
+"    color: lightgray;\n"
+"    border-image:url(Icon.png) -120px 0px no-repeat;;\n"
+"    padding-top: -15px;\n"
+"    padding-bottom: -17px;\n"
+"}")
+        self.pushButton.setText("")
+        self.pushButton.setObjectName("pushButton")
+        self.horizontalLayout_3.addWidget(self.pushButton)
+        self.pushButton_4 = QtWidgets.QPushButton(Form)
+        self.pushButton_4.setMinimumSize(QtCore.QSize(350, 40))
+        self.pushButton_4.setMaximumSize(QtCore.QSize(350, 40))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(11)
+        self.pushButton_4.setFont(font)
+        self.pushButton_4.setObjectName("pushButton_4")
+        self.horizontalLayout_3.addWidget(self.pushButton_4)
+        spacerItem11 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem11)
+        self.verticalLayout.addLayout(self.horizontalLayout_3)
+        self.gridLayout.addLayout(self.verticalLayout, 3, 2, 1, 2)
+        spacerItem12 = QtWidgets.QSpacerItem(294, 17, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem12, 2, 2, 1, 2)
+        spacerItem13 = QtWidgets.QSpacerItem(136, 125, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem13, 1, 0, 1, 1)
         self.formLayout = QtWidgets.QFormLayout()
         self.formLayout.setObjectName("formLayout")
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.formLayout.setItem(2, QtWidgets.QFormLayout.LabelRole, spacerItem1)
+        spacerItem14 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.formLayout.setItem(2, QtWidgets.QFormLayout.LabelRole, spacerItem14)
         self.label_6 = QtWidgets.QLabel(Form)
         font = QtGui.QFont()
         font.setFamily("Arial")
@@ -52,152 +196,17 @@ class Ui_Form(object):
 "}")
         self.label_2.setObjectName("label_2")
         self.formLayout.setWidget(0, QtWidgets.QFormLayout.SpanningRole, self.label_2)
-        spacerItem2 = QtWidgets.QSpacerItem(492, 68, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.formLayout.setItem(1, QtWidgets.QFormLayout.SpanningRole, spacerItem2)
+        spacerItem15 = QtWidgets.QSpacerItem(492, 68, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.formLayout.setItem(1, QtWidgets.QFormLayout.SpanningRole, spacerItem15)
         self.gridLayout.addLayout(self.formLayout, 0, 1, 2, 3)
-        spacerItem3 = QtWidgets.QSpacerItem(98, 125, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem3, 1, 0, 1, 1)
-        spacerItem4 = QtWidgets.QSpacerItem(76, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem4, 2, 5, 1, 1)
-        spacerItem5 = QtWidgets.QSpacerItem(294, 17, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem5, 3, 2, 1, 2)
-        spacerItem6 = QtWidgets.QSpacerItem(120, 17, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem6, 4, 0, 1, 1)
-        self.verticalLayout = QtWidgets.QVBoxLayout()
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.horizontalLayout = QtWidgets.QHBoxLayout()
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.pushButton_2 = QtWidgets.QPushButton(Form)
-        self.pushButton_2.setMinimumSize(QtCore.QSize(60, 60))
-        self.pushButton_2.setMaximumSize(QtCore.QSize(60, 60))
-        self.pushButton_2.setMouseTracking(True)
-        self.pushButton_2.setAutoFillBackground(False)
-        self.pushButton_2.setStyleSheet("QPushButton#pushButton_2 {\n"
-"    color: white;\n"
-"    font: bold 10pt;\n"
-"    border:none;\n"
-"    min-height: 60px;\n"
-"    min-width: 60px;\n"
-"    border-image:url(Icon.png) -60px 0px no-repeat;\n"
-"}\n"
-"QPushButton#pushButton_2:hover{\n"
-"    color: lightgray;\n"
-"    border-image:url(Icon.png) 0px 0px no-repeat;;\n"
-"}\n"
-"QPushButton#pushButton_2:pressed {\n"
-"    color: lightgray;\n"
-"    border-image:url(Icon.png) -120px 0px no-repeat;;\n"
-"    padding-top: -15px;\n"
-"    padding-bottom: -17px;\n"
-"}")
-        self.pushButton_2.setText("")
-        self.pushButton_2.setCheckable(False)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.horizontalLayout.addWidget(self.pushButton_2)
-        self.pushButton_binomail = QtWidgets.QPushButton(Form)
-        self.pushButton_binomail.setMinimumSize(QtCore.QSize(220, 40))
-        self.pushButton_binomail.setMaximumSize(QtCore.QSize(220, 40))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setWeight(50)
-        self.pushButton_binomail.setFont(font)
-        self.pushButton_binomail.setObjectName("pushButton_binomail")
-        self.horizontalLayout.addWidget(self.pushButton_binomail)
-        spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout.addItem(spacerItem7)
-        self.verticalLayout.addLayout(self.horizontalLayout)
-        spacerItem8 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout.addItem(spacerItem8)
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.pushButton_3 = QtWidgets.QPushButton(Form)
-        self.pushButton_3.setMinimumSize(QtCore.QSize(60, 60))
-        self.pushButton_3.setMaximumSize(QtCore.QSize(60, 60))
-        self.pushButton_3.setStyleSheet("QPushButton#pushButton_3 {\n"
-"    color: white;\n"
-"    font: bold 10pt;\n"
-"    border:none;\n"
-"    min-height: 60px;\n"
-"    min-width: 60px;\n"
-"    border-image:url(Icon.png) -60px 0px no-repeat;\n"
-"}\n"
-"QPushButton#pushButton_3:hover{\n"
-"    color: lightgray;\n"
-"    border-image:url(Icon.png) 0px 0px no-repeat;;\n"
-"}\n"
-"QPushButton#pushButton_3:pressed {\n"
-"    color: lightgray;\n"
-"    border-image:url(Icon.png) -120px 0px no-repeat;;\n"
-"    padding-top: -15px;\n"
-"    padding-bottom: -17px;\n"
-"}")
-        self.pushButton_3.setText("")
-        self.pushButton_3.setObjectName("pushButton_3")
-        self.horizontalLayout_2.addWidget(self.pushButton_3)
-        self.pushButton_normal = QtWidgets.QPushButton(Form)
-        self.pushButton_normal.setMinimumSize(QtCore.QSize(220, 40))
-        self.pushButton_normal.setMaximumSize(QtCore.QSize(220, 40))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(11)
-        font.setBold(False)
-        font.setWeight(50)
-        self.pushButton_normal.setFont(font)
-        self.pushButton_normal.setObjectName("pushButton_normal")
-        self.horizontalLayout_2.addWidget(self.pushButton_normal)
-        spacerItem9 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_2.addItem(spacerItem9)
-        self.verticalLayout.addLayout(self.horizontalLayout_2)
-        spacerItem10 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.verticalLayout.addItem(spacerItem10)
-        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.pushButton = QtWidgets.QPushButton(Form)
-        self.pushButton.setMaximumSize(QtCore.QSize(60, 60))
-        self.pushButton.setStyleSheet("QPushButton#pushButton {\n"
-"    color: white;\n"
-"    font: bold 10pt;\n"
-"    border:none;\n"
-"    min-height: 60px;\n"
-"    min-width: 60px;\n"
-"    border-image:url(Icon.png) -60px 0px no-repeat;\n"
-"}\n"
-"QPushButton#pushButton:hover{\n"
-"    color: lightgray;\n"
-"    border-image:url(Icon.png) 0px 0px no-repeat;;\n"
-"}\n"
-"QPushButton#pushButton:pressed {\n"
-"    color: lightgray;\n"
-"    border-image:url(Icon.png) -120px 0px no-repeat;;\n"
-"    padding-top: -15px;\n"
-"    padding-bottom: -17px;\n"
-"}")
-        self.pushButton.setText("")
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout_3.addWidget(self.pushButton)
-        self.pushButton_4 = QtWidgets.QPushButton(Form)
-        self.pushButton_4.setMinimumSize(QtCore.QSize(220, 40))
-        self.pushButton_4.setMaximumSize(QtCore.QSize(220, 40))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(11)
-        self.pushButton_4.setFont(font)
-        self.pushButton_4.setObjectName("pushButton_4")
-        self.horizontalLayout_3.addWidget(self.pushButton_4)
-        spacerItem11 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_3.addItem(spacerItem11)
-        self.verticalLayout.addLayout(self.horizontalLayout_3)
-        self.gridLayout.addLayout(self.verticalLayout, 4, 2, 1, 2)
-        spacerItem12 = QtWidgets.QSpacerItem(101, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem12, 4, 4, 1, 1)
-        spacerItem13 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout.addItem(spacerItem13, 5, 3, 1, 1)
-        spacerItem14 = QtWidgets.QSpacerItem(174, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem14, 6, 0, 1, 1)
-        spacerItem15 = QtWidgets.QSpacerItem(209, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem15, 6, 2, 1, 1)
+        spacerItem16 = QtWidgets.QSpacerItem(101, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem16, 3, 4, 1, 1)
+        spacerItem17 = QtWidgets.QSpacerItem(18, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem17, 5, 5, 1, 1)
+        spacerItem18 = QtWidgets.QSpacerItem(20, 68, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.gridLayout.addItem(spacerItem18, 6, 1, 1, 1)
+        spacerItem19 = QtWidgets.QSpacerItem(136, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout.addItem(spacerItem19, 0, 0, 1, 1)
         self.verticalLayout_2 = QtWidgets.QVBoxLayout()
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.label_3 = QtWidgets.QLabel(Form)
@@ -220,11 +229,7 @@ class Ui_Form(object):
 "}")
         self.label_7.setObjectName("label_7")
         self.verticalLayout_2.addWidget(self.label_7)
-        self.gridLayout.addLayout(self.verticalLayout_2, 6, 4, 1, 1)
-        spacerItem16 = QtWidgets.QSpacerItem(1, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout.addItem(spacerItem16, 6, 5, 1, 1)
-        spacerItem17 = QtWidgets.QSpacerItem(20, 68, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
-        self.gridLayout.addItem(spacerItem17, 7, 1, 1, 1)
+        self.gridLayout.addLayout(self.verticalLayout_2, 5, 4, 1, 1)
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -235,14 +240,13 @@ class Ui_Form(object):
         button_style(self.pushButton_binomail, "Aqua")
         load_style(self.pushButton_4)
         button_style(self.pushButton_4, "MediumGray")
-
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.label_6.setText(_translate("Form", "Wählen Sie die Form der Verteilung bitte "))
-        self.label_2.setText(_translate("Form", "Willkommen beim Verteilungsanalyse Software"))
         self.pushButton_binomail.setText(_translate("Form", "Binomial Verteilung"))
         self.pushButton_normal.setText(_translate("Form", "Normal Verteilung"))
         self.pushButton_4.setText(_translate("Form", "Hypergeometrische Verteilung"))
+        self.label_6.setText(_translate("Form", "Wählen Sie die Form der Verteilung bitte "))
+        self.label_2.setText(_translate("Form", "Willkommen beim Verteilungsanalyse Software"))
         self.label_3.setText(_translate("Form", "Yukun Chen"))
         self.label_7.setText(_translate("Form", "Shaohua Tong"))
