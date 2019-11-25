@@ -5,11 +5,12 @@
 # Created by: PyQt5 UI code generator 5.13.0
 #
 # WARNING! All changes made in this file will be lost!
-
+import sys
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QRegExp
 from PyQt5.QtGui import QIntValidator, QRegExpValidator, QDoubleValidator
+from PyQt5.QtWidgets import QApplication
 
 from uiView.utils import load_style, button_style
 
@@ -239,8 +240,6 @@ class BinomialDialog(object):
         nIntvalidator = QIntValidator(self)
         nIntvalidator.setRange(0, 99999)
         self.lineEdit_n.setValidator(nIntvalidator)
-        self.lineEdit_b.setValidator(nIntvalidator)
-        self.lineEdit_a.setValidator(nIntvalidator)
         self.lineEdit_point.setValidator(nIntvalidator)
 
         rx = QRegExp("^[0-1]{1}([.]([0-9]){2})?$")
@@ -280,7 +279,7 @@ class BinomialDialog(object):
         self.label_n.setText(_translate("Dialog", "n"))
         self.label_p.setText(_translate("Dialog", "p"))
         self.label_style.setText(_translate("Dialog", "Style"))
-        self.comboBox_style.setItemText(0, _translate("Dialog", "pdf"))
+        self.comboBox_style.setItemText(0, _translate("Dialog", "pmf"))
         self.comboBox_style.setItemText(1, _translate("Dialog", "cdf"))
         self.label_area.setText(_translate("Dialog", "Area"))
         self.comboBox_area.setItemText(0, _translate("Dialog", "None"))
