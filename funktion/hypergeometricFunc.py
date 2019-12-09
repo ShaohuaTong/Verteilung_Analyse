@@ -197,3 +197,10 @@ class HypergeometricShow(HypergeometricDialog, QDialog):
 # #                  # 添加标注，参数：注释文本、指向点、文字位置、箭头属性
 # #                  arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=.2')
 # #                  )
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     dialog = QtWidgets.QDialog()
+#     ui = Ui_Dialog()
+#     ui.setupUi(dialog)
+#     dialog.show()
+#     sys.exit(app.exec_())
