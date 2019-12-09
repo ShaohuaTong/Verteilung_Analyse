@@ -10,6 +10,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QIntValidator, QDoubleValidator
 
+
 class HypergeometricDialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
@@ -321,11 +322,11 @@ class HypergeometricDialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.groupBox.setTitle(_translate("Dialog", "Graph"))
-        self.label_M.setText(_translate("Dialog", "M"))
-        self.label_N.setText(_translate("Dialog", "N"))
+        self.label_M.setText(_translate("Dialog", "N"))
+        self.label_N.setText(_translate("Dialog", "M"))
         self.label_n.setText(_translate("Dialog", "n"))
-        self.label_area_regel_2.setText(_translate("Dialog", "n <= N <= M"))
-        self.label_area_regel.setText(_translate("Dialog", "k={0,1,...,m},m=min{N,n}"))
+        self.label_area_regel_2.setText(_translate("Dialog", "n <= M <= N"))
+        self.label_area_regel.setText(_translate("Dialog", "k={0,1,...,m},m=min{n,M}"))
         self.label_style.setText(_translate("Dialog", "Style"))
         self.comboBox_style.setItemText(0, _translate("Dialog", "pmf"))
         self.comboBox_style.setItemText(1, _translate("Dialog", "cdf"))

@@ -49,6 +49,13 @@ class HypergeometricShow(HypergeometricDialog, QDialog):
         self.hidden()
         self.label_area_result.clear()
 
+        #Spicy：
+        #M is the total number of objects,
+        #n is total number of Type I objects.
+        #The random variate represents the number of Type I objects in N drawn without replacement from the total population.
+        #In wiki: N -> M, M -> n, n -> N
+
+
         if M != '' and N != '' and n != '':
             M = int(M)
             N = int(N)
@@ -190,3 +197,10 @@ class HypergeometricShow(HypergeometricDialog, QDialog):
 # #                  # 添加标注，参数：注释文本、指向点、文字位置、箭头属性
 # #                  arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=.2')
 # #                  )
+# if __name__ == '__main__':
+#     app = QApplication(sys.argv)
+#     dialog = QtWidgets.QDialog()
+#     ui = Ui_Dialog()
+#     ui.setupUi(dialog)
+#     dialog.show()
+#     sys.exit(app.exec_())

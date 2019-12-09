@@ -58,7 +58,7 @@
                             </font>
                            </property>
                            <property name="text">
-                            <string>M</string>
+                            <string>N</string>
                            </property>
                           </widget>
                          </item>
@@ -111,7 +111,7 @@
                             </font>
                            </property>
                            <property name="text">
-                            <string>N</string>
+                            <string>M</string>
                            </property>
                           </widget>
                          </item>
@@ -207,7 +207,7 @@
                           <number>1</number>
                          </property>
                          <property name="text">
-                          <string>n &lt;= N &lt;= M</string>
+                          <string>n &lt;= M &lt;= N</string>
                          </property>
                         </widget>
                        </item>
@@ -272,7 +272,7 @@
                          <item>
                           <widget class="QLabel" name="label_area_regel">
                            <property name="text">
-                            <string>k={0,1,...,m},m=min{N,n}</string>
+                            <string>k={0,1,...,m},m=min{n,M}</string>
                            </property>
                           </widget>
                          </item>
