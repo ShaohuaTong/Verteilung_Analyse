@@ -269,13 +269,6 @@ class BinomialDialog(object):
         self.label_point.setHidden(True)
         self.lineEdit_point.setHidden(True)
 
-        load_style(self.pushButton_drawing)
-        button_style(self.pushButton_drawing, "DarkGray")
-        load_style(self.pushButton_return)
-        button_style(self.pushButton_return, "BlueJeans")
-        load_style(self.pushButton_clear)
-        button_style(self.pushButton_clear, "Mint")
-
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 

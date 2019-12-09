@@ -49,6 +49,13 @@ class HypergeometricShow(HypergeometricDialog, QDialog):
         self.hidden()
         self.label_area_result.clear()
 
+        #Spicy：
+        #M is the total number of objects,
+        #n is total number of Type I objects.
+        #The random variate represents the number of Type I objects in N drawn without replacement from the total population.
+        #In wiki: N -> M, M -> n, n -> N
+
+
         if M != '' and N != '' and n != '':
             M = int(M)
             N = int(N)
