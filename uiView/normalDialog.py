@@ -265,7 +265,7 @@ class NormalDialog(object):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.label_n.setText(_translate("Dialog", "μ"))
-        self.label_p.setText(_translate("Dialog", "σ²"))
+        self.label_p.setText(_translate("Dialog", "σ"))
         self.label_style.setText(_translate("Dialog", "Style"))
         self.comboBox_style.setItemText(0, _translate("Dialog", "pdf"))
         self.comboBox_style.setItemText(1, _translate("Dialog", "cdf"))
