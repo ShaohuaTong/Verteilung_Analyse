@@ -51,11 +51,17 @@ class BinomialShow(BinomialDialog, QDialog):
         self.hidden()
         self.label_area_result.clear()
 
+        if n == '' or p == '':
+            self.label_area_result.setText('n or p should not be empty')
         if n != '' and p != '':
             n = int(n)
             p = float(p)
 
-            if p != 0 and p != 1:
+            if n == 0:
+                self.label_area_result.setText('n should be > 0')
+            elif p == 0 or p == 1:
+                self.label_area_result.setText('p should be 0 < p < 1')
+            elif p != 0 and p != 1:
                 plt.clf()
                 x = np.arange(0, n + 1)
                 y = stats.binom.pmf(x, n, p)
@@ -97,69 +103,81 @@ class BinomialShow(BinomialDialog, QDialog):
         cy = np.cumsum(y * 1)
         if a == '-' or a == '+' or a == '.' or b == '-' or b == '+' or b == '.':
             self.label_area_result.setText('invalid a or b')
-        elif self.comboBox_area.currentText() == 'x=a' and a != '':
-            a = float(a)
-            if a - math.floor(a) != 0 or a > n or a < 0:
-                self.label_area_result.setText('invalid a')
+        elif self.comboBox_area.currentText() == 'x=a':
+            if a == '':
+                self.label_area_result.setText('a should not be empty')
             else:
-                if a == 0:
-                    self.label_area_result.setText('Probability of the point is %.3f' % (cy[0]))
+                a = float(a)
+                if a - math.floor(a) != 0 or a > n or a < 0:
+                    self.label_area_result.setText('invalid a')
                 else:
-                    self.label_area_result.setText('Probability of the point is %.3f' % (cy[int(a)] - cy[int(a) - 1]))
-
-        elif self.comboBox_area.currentText() == 'x<=a' and a != '':
-            a = float(a)
-            if 0 <= a <= n:
-                a = int(math.floor(a))
-                xf = x[np.where((x >= 0) & (x <= a))]
-                plt.fill_between(xf, self.func(xf), stats.binom.pmf(xf, n, p), color='blue', alpha=0.25)
-                area = cy[a]
-                self.label_area_result.setText('Probability sum is %.3f' % area)
-            elif a < 0:
-                self.label_area_result.setText('Probability sum is 0.000')
-            elif a > n:
-                self.draw_area(x, y, n, p, n, b)
-        elif self.comboBox_area.currentText() == 'x>=b' and b != '':
-            b = float(b)
-            b = int(math.ceil(b))
-            if 0 <= b <= n:
-                xf = x[np.where((x >= b) & (x <= n))]
-                plt.fill_between(xf, self.func(xf), stats.binom.pmf(xf, n, p), color='blue', alpha=0.25)
-                if b == 0:
-                    area = 1
-                else:
-                    area = 1 - cy[b - 1]
-                self.label_area_result.setText('Probability sum is %.3f' % area)
-            elif b > n:
-                self.label_area_result.setText('Probability sum is 0.000')
-            elif b < 0:
-                self.draw_area(x, y, n, p, a, 0)
-        elif self.comboBox_area.currentText() == 'a<=x<=b' and a != '' and b != '':
-            a, b = float(a), float(b)
-            if a > b:
-                self.label_area_result.setText('b should bigger than a')
-            elif a < 0:
-                if b < 0:
-                    self.label_area_result.setText('Probability sum is 0.000')
-                elif 0 <= b <= n:
-                    self.draw_area(x, y, n, p, 0, b)
-                elif b > n:
-                    self.draw_area(x, y, n, p, 0, n)
-            elif 0 <= a <= n:
-                if b <= n:
-                    a = int(math.ceil(a))
-                    b = int(math.floor(b))
-                    xf = x[np.where((x >= a) & (x <= b))]
-                    plt.fill_between(xf, self.func(xf), stats.binom.pmf(xf, n, p), color='blue', alpha=0.25)
                     if a == 0:
-                        area = cy[b] - 0
+                        self.label_area_result.setText('Probability of the point is %.3f' % (cy[0]))
                     else:
-                        area = cy[b] - cy[a - 1]
+                        self.label_area_result.setText('Probability of the point is %.3f' % (cy[int(a)] - cy[int(a) - 1]))
+
+        elif self.comboBox_area.currentText() == 'x<=a':
+            if a == '':
+                self.label_area_result.setText('a should not be empty')
+            else:
+                a = float(a)
+                if 0 <= a <= n:
+                    a = int(math.floor(a))
+                    xf = x[np.where((x >= 0) & (x <= a))]
+                    plt.fill_between(xf, self.func(xf), stats.binom.pmf(xf, n, p), color='blue', alpha=0.25)
+                    area = cy[a]
+                    self.label_area_result.setText('Probability sum is %.3f' % area)
+                elif a < 0:
+                    self.label_area_result.setText('Probability sum is 0.000')
+                elif a > n:
+                    self.draw_area(x, y, n, p, n, b)
+        elif self.comboBox_area.currentText() == 'x>=b':
+            if b == '':
+                self.label_area_result.setText('b should not be empty')
+            else:
+                b = float(b)
+                b = int(math.ceil(b))
+                if 0 <= b <= n:
+                    xf = x[np.where((x >= b) & (x <= n))]
+                    plt.fill_between(xf, self.func(xf), stats.binom.pmf(xf, n, p), color='blue', alpha=0.25)
+                    if b == 0:
+                        area = 1
+                    else:
+                        area = 1 - cy[b - 1]
                     self.label_area_result.setText('Probability sum is %.3f' % area)
                 elif b > n:
-                    self.draw_area(x, y, n, p, a, n)
-            elif a > n:
-                self.label_area_result.setText('Probability sum is 0.000')
+                    self.label_area_result.setText('Probability sum is 0.000')
+                elif b < 0:
+                    self.draw_area(x, y, n, p, a, 0)
+        elif self.comboBox_area.currentText() == 'a<=x<=b':
+            if a == '' or b == '':
+                self.label_area_result.setText('a or b should not be empty')
+            else:
+                a, b = float(a), float(b)
+                if a > b:
+                    self.label_area_result.setText('b should bigger than a')
+                elif a < 0:
+                    if b < 0:
+                        self.label_area_result.setText('Probability sum is 0.000')
+                    elif 0 <= b <= n:
+                        self.draw_area(x, y, n, p, 0, b)
+                    elif b > n:
+                        self.draw_area(x, y, n, p, 0, n)
+                elif 0 <= a <= n:
+                    if b <= n:
+                        a = int(math.ceil(a))
+                        b = int(math.floor(b))
+                        xf = x[np.where((x >= a) & (x <= b))]
+                        plt.fill_between(xf, self.func(xf), stats.binom.pmf(xf, n, p), color='blue', alpha=0.25)
+                        if a == 0:
+                            area = cy[b] - 0
+                        else:
+                            area = cy[b] - cy[a - 1]
+                        self.label_area_result.setText('Probability sum is %.3f' % area)
+                    elif b > n:
+                        self.draw_area(x, y, n, p, a, n)
+                elif a > n:
+                    self.label_area_result.setText('Probability sum is 0.000')
 
     def func(self, x):
         return 0 * x
