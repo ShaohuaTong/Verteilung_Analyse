@@ -1,5 +1,7 @@
+
 import sys
 import os
+if hasattr(sys, 'frozen'):os.environ['PATH'] = sys._MEIPASS + ";" + os.environ['PATH']
 from PyQt5.QtWidgets import QApplication
 from funktion.coverFun import CircleLineWindow
 from funktion.binomialFunc import BinomialShow

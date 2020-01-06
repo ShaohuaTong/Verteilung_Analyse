@@ -232,6 +232,7 @@ class NormalDialog(object):
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
+
         pDoublevalidator = QDoubleValidator(self)
         pDoublevalidator.setRange(-99999, 99999)
         pDoublevalidator.setNotation(QDoubleValidator.StandardNotation)
@@ -246,6 +247,7 @@ class NormalDialog(object):
         self.lineEdit_p.setValidator(qDoublevalidator)
         self.lineEdit_a.setValidator(pDoublevalidator)
         self.lineEdit_b.setValidator(pDoublevalidator)
+        self.lineEdit_x.setValidator(pDoublevalidator)
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
