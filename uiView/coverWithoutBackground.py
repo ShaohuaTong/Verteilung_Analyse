@@ -252,11 +252,11 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.pushButton_binomail.setText(_translate("Form", "Binomial Verteilung"))
-        self.pushButton_normal.setText(_translate("Form", "Normal Verteilung"))
-        self.pushButton_4.setText(_translate("Form", "Hypergeometrische Verteilung"))
-        self.label_2.setText(_translate("Form", "Willkommen beim Verteilungsanalyse Software"))
-        self.label_6.setText(_translate("Form", "Wählen Sie die Form der Verteilung bitte "))
+        self.pushButton_binomail.setText(_translate("Form", "Binomial distribution"))
+        self.pushButton_normal.setText(_translate("Form", "Normal distribution"))
+        self.pushButton_4.setText(_translate("Form", "hypergeometric distribution"))
+        self.label_2.setText(_translate("Form", "Welcome to distribution analysis software"))
+        self.label_6.setText(_translate("Form", "Please choose the form of distribution"))
         self.label_3.setText(_translate("Form", "Yukun Chen"))
         self.label_7.setText(_translate("Form", "Shaohua Tong"))
 
